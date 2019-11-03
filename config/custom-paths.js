@@ -1,0 +1,21 @@
+//const resolve = require("resolve");
+const path = require("path");
+
+module.exports = {
+  components: path.resolve(__dirname, "./../src/website/components/"),
+  utils: path.resolve(__dirname, "./../src/website/utils/"),
+  models: path.resolve(__dirname, "./../src/website/models/"),
+  theme: path.resolve(__dirname, "./../src/theme/"),
+
+  // ------------------------------------------------------------------------
+  "@core/store": path.resolve(__dirname, "./../src/core/store/"),
+  "@core/components": path.resolve(__dirname, "./../src/core/components/"),
+  "@core/utils": path.resolve(__dirname, "./../src/core/utils/"),
+  "@core/models": path.resolve(__dirname, "./../src/core/models/"),
+  "@core/actions-engine": path.resolve(
+    __dirname,
+    "./../src/core/actions-engine/"
+  )
+};
+
+module.exports.CUSTOMPATHS;
