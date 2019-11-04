@@ -13,11 +13,7 @@ export const Actions = (
   hasSucceeded = true,
   hasFailed = true
 ) => {
-  const action = payload => ({
-    type: `${groupName}//${name}`,
-    payload
-  });
-  action.type = `${groupName}//${name}`;
+  const action = Action(groupName, name);
 
   if (hasSucceeded) {
     action.succeeded = Action(groupName, `${name}_SUCCEEDED`);

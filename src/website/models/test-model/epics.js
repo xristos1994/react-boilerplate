@@ -1,7 +1,4 @@
-import { combineEpics } from "redux-observable";
-import { ofType } from "redux-observable";
-import "rxjs";
-
+import { combineEpics, ofType } from "redux-observable";
 import {
   //map,
   mergeMap

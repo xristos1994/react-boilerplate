@@ -15,7 +15,8 @@ module.exports = {
   "@core/actions-engine": path.resolve(
     __dirname,
     "./../src/core/actions-engine/"
-  )
+  ),
+  "@core/utils": path.resolve(__dirname, "./../src/core/utils/")
 };
 
 module.exports.CUSTOMPATHS;
