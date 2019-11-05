@@ -18,4 +18,4 @@ export const TestComponent = ({ x, y, z }) => {
   );
 };
 
-export default withProps(y, x, z)(TestComponent);
+export default withProps({ x, y, z })(TestComponent);

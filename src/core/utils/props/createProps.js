@@ -1,44 +1,25 @@
-import { useSelector, useDispatch } from "react-redux";
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const findValue = (object, property) => {
-  let value = object;
-  const splitted = property.split(".");
-  for (let s of splitted) {
-    value = value[s];
-    if (value === undefined) return value;
-  }
-  return value;
-};
-
-const actionProp = (name, action) => {
-  return { action, type: "action", name };
-};
-
-const stateProp = (property, name, selector = value => value) => ({
-  name,
-  property,
-  type: "prop",
-  selector
-});
-
-const withProps = (...stateActionProps) => Component => props => {
+const useProps = (propsMapers, ownProps) => {
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const myProps = useSelector(state => {
-    const tempProps = {};
-    for (let prop of stateActionProps.filter(s => s.type === "prop")) {
-      tempProps[prop.name] = prop.selector(findValue(state, prop.property));
-    }
-    return tempProps;
-  });
-
-  const myActions = {};
-  for (let prop of stateActionProps.filter(s => s.type === "action")) {
-    myActions[prop.name] = props => dispatch(prop.action(props));
+  if (!propsMapers) {
+    return {};
   }
 
-  return <Component {...myProps} {...myActions} {...props} />;
+  return Object.entries(propsMapers).reduce(
+    (props, [propName, maper]) =>
+      Object.assign(props, {
+        [propName]: maper({ state, dispatch }, ownProps),
+      }),
+    {},
+  );
 };
 
-export { actionProp, stateProp, withProps };
+const withProps = propsMappers => Component => props => (
+  <Component {...useProps(propsMappers, props)} {...props} />
+);
+
+export { useProps, withProps };

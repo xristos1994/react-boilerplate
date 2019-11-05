@@ -1,3 +1,3 @@
-import { actionProp, stateProp, withProps } from "./createProps";
+import { withProps } from "./createProps";
 
-export { actionProp, stateProp, withProps };
+export { withProps };
