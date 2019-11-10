@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
@@ -12,7 +11,8 @@ import SnackbarContent from "@material-ui/core/SnackbarContent";
 import WarningIcon from "@material-ui/icons/Warning";
 
 import { styles } from "./styles";
-import { coreUi_closeSnackbarAction } from "@core/models/core-ui";
+import { withProps } from "@core/utils/props";
+import { coreUi_closeSnackbar, snackbarProps } from "@core/models/core-ui";
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -74,44 +74,29 @@ MySnackbarContentWrapper.propTypes = {
   className: PropTypes.string,
   message: PropTypes.string,
   onClose: PropTypes.func,
-  variant: PropTypes.oneOf(["error", "info", "success", "warning"]).isRequired
+  variant: PropTypes.oneOf(["error", "info", "success", "warning"])
 };
 
-export const UiSnackbar = ({ snackbarProps, coreUi_closeSnackbarAction }) => {
-  const {
-    message = "",
-    type = "info",
-    position = "bottomRight",
-    show
-  } = snackbarProps;
+export const UiSnackbar = ({ snackbarProps, coreUi_closeSnackbar }) => {
+  const { message, type, position, show } = snackbarProps;
   return (
     <div>
-      {show && (
-        <Snackbar
-          anchorOrigin={positions[position]}
-          open={show}
-          onClose={coreUi_closeSnackbarAction}
-        >
-          <MySnackbarContentWrapper
-            onClose={coreUi_closeSnackbarAction}
-            variant={type}
-            message={message}
-          />
-        </Snackbar>
-      )}
+      <Snackbar
+        anchorOrigin={positions[position]}
+        open={show}
+        onClose={() => {
+          coreUi_closeSnackbar({ message, type, position, show: false });
+        }}
+      >
+        <MySnackbarContentWrapper
+          onClose={() => {
+            coreUi_closeSnackbar({ message, type, position, show: false });
+          }}
+          variant={type}
+          message={message}
+        />
+      </Snackbar>
     </div>
   );
 };
-
-const mapStateToProps = state => ({
-  snackbarProps: state.core.coreUi.snackbar
-});
-
-const mapActionsToProps = {
-  coreUi_closeSnackbarAction
-};
-
-export default connect(
-  mapStateToProps,
-  mapActionsToProps
-)(UiSnackbar);
+export default withProps({ coreUi_closeSnackbar, snackbarProps })(UiSnackbar);

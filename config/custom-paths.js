@@ -2,6 +2,7 @@
 const path = require("path");
 
 module.exports = {
+  website: path.resolve(__dirname, "./../src/website/"),
   components: path.resolve(__dirname, "./../src/website/components/"),
   utils: path.resolve(__dirname, "./../src/website/utils/"),
   models: path.resolve(__dirname, "./../src/website/models/"),

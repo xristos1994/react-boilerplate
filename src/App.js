@@ -1,16 +1,21 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "@material-ui/styles";
+
+import store from "@core/store";
+import theme from "theme";
 import "./App.css";
-import { TestComponent } from "components";
-import { UiModal } from "@core/components";
-import { UiSnackbar } from "@core/components";
+import Website from "website";
 
 const App = () => {
   return (
-    <div className="App">
-      <TestComponent />
-      <UiModal />
-      <UiSnackbar />
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <Website />
+        </div>
+      </ThemeProvider>
+    </Provider>
   );
 };
 

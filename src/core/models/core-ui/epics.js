@@ -18,6 +18,7 @@ import {
   coreUi_closeSnackbarAfterMs,
   coreUi_updateSnackbarState
 } from "./actions";
+import { createSnackbarState, createModalState } from "./helpers";
 
 // Modal
 const coreUi_openModalEpic = (action$, state$) => {
@@ -25,9 +26,8 @@ const coreUi_openModalEpic = (action$, state$) => {
     ofType(coreUi_openModalAction.type),
     map(({ payload }) =>
       coreUi_updateModalState({
-        show: true,
-        title: payload.title,
-        message: payload.message
+        ...createModalState(payload),
+        show: true
       })
     )
   );
@@ -36,18 +36,9 @@ const coreUi_openModalEpic = (action$, state$) => {
 const coreUi_closeModalEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeModalAction.type),
-    mergeMap(() => [
-      coreUi_updateModalState({}),
-      coreUi_openSnackbarAction({
-        message: "testMessage",
-        type: "error",
-        position: "bottomLeft"
-        //duration: 2000
-      })
-    ])
+    map(() => coreUi_updateModalState({}))
   );
 };
-
 // ~Modal
 
 // Snackbar
@@ -56,12 +47,11 @@ const coreUi_openSnackbarEpic = (action$, state$) => {
     ofType(coreUi_openSnackbarAction.type),
     mergeMap(({ payload }) => [
       coreUi_updateSnackbarState({
-        show: true,
-        message: payload.message,
-        type: payload.type,
-        position: payload.position
+        ...createSnackbarState(payload),
+        show: true
       }),
       coreUi_closeSnackbarAfterMs({
+        ...createSnackbarState(payload),
         duration: payload.duration ? payload.duration : 2000
       })
     ])
@@ -71,7 +61,9 @@ const coreUi_openSnackbarEpic = (action$, state$) => {
 const coreUi_closeSnackbarEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeSnackbarAction.type),
-    map(() => coreUi_updateSnackbarState({}))
+    map(({ payload }) => {
+      return coreUi_updateSnackbarState(payload);
+    })
   );
 };
 
@@ -79,10 +71,9 @@ const coreUi_closeSnackbarAfterMsEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeSnackbarAfterMs.type),
     delayWhen(({ payload }) => interval(payload.duration)),
-    map(() => coreUi_closeSnackbarAction())
+    map(({ payload }) => coreUi_closeSnackbarAction(payload))
   );
 };
-
 // ~Snackbar
 
 export const coreUi_epic = combineEpics(

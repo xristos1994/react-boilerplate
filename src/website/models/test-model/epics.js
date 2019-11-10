@@ -11,11 +11,8 @@ const epic = (action$, state$) => {
   return action$.pipe(
     ofType(testAction.type),
     mergeMap(() => [
-      coreUi_openModalAction({
-        title: "Test Title",
-        message: "Test Message"
-      }),
-      testAction.succeeded({ test: 1 })
+      testAction.succeeded({ test: 1 }),
+      coreUi_openModalAction({ title: "Title", message: "Message" })
     ])
   );
 };

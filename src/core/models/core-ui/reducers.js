@@ -16,7 +16,7 @@ const reducer = (
       const { message, type, position, show = false } = action.payload;
       return {
         ...state,
-        snackbar: show ? { message, type, position, show } : { show, type }
+        snackbar: { message, type, position, show }
       };
     }
     default:

@@ -6,7 +6,6 @@ export const coreUi_openModalAction = Action("CORE_UI", "OPEN_MODAL");
 export const coreUi_closeModalAction = Action("CORE_UI", "CLOSE_MODAL");
 
 export const coreUi_updateModalState = Action("CORE_UI", "UPDATE_MODAL_STATE");
-
 // ~ Modal
 
 //  Snackbar
@@ -23,5 +22,4 @@ export const coreUi_updateSnackbarState = Action(
   "CORE_UI",
   "UPDATE_SNACKBAR_STATE"
 );
-
 // ~ Snackbar

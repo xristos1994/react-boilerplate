@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -9,15 +8,16 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Scrollbars } from "react-custom-scrollbars";
 
 import "./uiModal.css";
-import { coreUi_closeModalAction } from "@core/models/core-ui";
+import { withProps } from "@core/utils/props";
+import { coreUi_closeModal, modalProps } from "@core/models/core-ui/";
 
-export const UiModal = ({ modalProps, coreUi_closeModalAction }) => {
+export const UiModal = ({ modalProps, coreUi_closeModal }) => {
   const { title = "", message = "", show } = modalProps;
   return (
     <div>
       <Dialog
         open={show}
-        onClose={coreUi_closeModalAction}
+        onClose={coreUi_closeModal}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -30,11 +30,7 @@ export const UiModal = ({ modalProps, coreUi_closeModalAction }) => {
           </Scrollbars>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={coreUi_closeModalAction}
-            color="primary"
-            autoFocus={true}
-          >
+          <Button onClick={coreUi_closeModal} color="primary" autoFocus={true}>
             OK
           </Button>
         </DialogActions>
@@ -43,13 +39,4 @@ export const UiModal = ({ modalProps, coreUi_closeModalAction }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  modalProps: state.core.coreUi.modal
-});
-
-const mapActionsToProps = { coreUi_closeModalAction };
-
-export default connect(
-  mapStateToProps,
-  mapActionsToProps
-)(UiModal);
+export default withProps({ modalProps, coreUi_closeModal })(UiModal);
