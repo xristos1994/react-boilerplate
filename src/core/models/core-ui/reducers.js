@@ -9,14 +9,12 @@ const reducer = (
 ) => {
   switch (action.type) {
     case coreUi_updateModalState.type: {
-      const { title, message, show = false } = action.payload;
-      return { ...state, modal: show ? { title, message, show } : { show } };
+      return { ...state, modal: action.payload };
     }
     case coreUi_updateSnackbarState.type: {
-      const { message, type, position, show = false } = action.payload;
       return {
         ...state,
-        snackbar: { message, type, position, show }
+        snackbar: action.payload
       };
     }
     default:

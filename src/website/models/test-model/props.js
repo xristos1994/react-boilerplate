@@ -1,17 +1,7 @@
 import { testAction } from "./actions";
 
-const x = ({ dispatch }) => () => dispatch(testAction());
-const y = ({
-  state: {
-    website: {
-      testState: { test },
-    },
-  },
-}) => test + 3;
-const z = ({
-  state: {
-    website: { testState },
-  },
-}) => testState.test + 10;
+const doTest = ({ dispatch }) => payload => dispatch(testAction(payload));
 
-export { x, y, z };
+const test = ({ state }) => state.website.testState.test;
+
+export { test, doTest };

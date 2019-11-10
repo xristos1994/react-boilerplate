@@ -12,12 +12,12 @@ import { withProps } from "@core/utils/props";
 import { coreUi_closeModal, modalProps } from "@core/models/core-ui/";
 
 export const UiModal = ({ modalProps, coreUi_closeModal }) => {
-  const { title = "", message = "", show } = modalProps;
+  const { title = "", message = "", show = false } = modalProps;
   return (
     <div>
       <Dialog
         open={show}
-        onClose={coreUi_closeModal}
+        onClose={() => coreUi_closeModal()}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -30,7 +30,11 @@ export const UiModal = ({ modalProps, coreUi_closeModal }) => {
           </Scrollbars>
         </DialogContent>
         <DialogActions>
-          <Button onClick={coreUi_closeModal} color="primary" autoFocus={true}>
+          <Button
+            onClick={() => coreUi_closeModal()}
+            color="primary"
+            autoFocus={true}
+          >
             OK
           </Button>
         </DialogActions>

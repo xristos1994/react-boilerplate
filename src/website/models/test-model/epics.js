@@ -5,14 +5,12 @@ import {
   //withLatestFrom
 } from "rxjs/operators";
 import { testAction } from "./actions";
-import { coreUi_openModalAction } from "@core/models/core-ui";
 
 const epic = (action$, state$) => {
   return action$.pipe(
     ofType(testAction.type),
-    mergeMap(() => [
-      testAction.succeeded({ test: 1 }),
-      coreUi_openModalAction({ title: "Title", message: "Message" })
+    mergeMap(({ payload }) => [
+      testAction.succeeded({ test: payload.test + 1 })
     ])
   );
 };

@@ -11,8 +11,10 @@ import { coreUi_reducer } from "./reducers";
 import { coreUi_epic } from "./epics";
 
 import {
+  coreUi_openModal,
   coreUi_closeModal,
   modalProps,
+  coreUi_openSnackbar,
   coreUi_closeSnackbar,
   snackbarProps
 } from "./props";
@@ -27,8 +29,10 @@ export {
   coreUi_updateSnackbarState,
   coreUi_reducer,
   coreUi_epic,
+  coreUi_openModal,
   coreUi_closeModal,
   modalProps,
   coreUi_closeSnackbar,
+  coreUi_openSnackbar,
   snackbarProps
 };
