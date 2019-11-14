@@ -6,6 +6,7 @@ module.exports = {
   components: path.resolve(__dirname, "./../src/website/components/"),
   utils: path.resolve(__dirname, "./../src/website/utils/"),
   models: path.resolve(__dirname, "./../src/website/models/"),
+  services: path.resolve(__dirname, "./../src/website/services/"),
   theme: path.resolve(__dirname, "./../src/theme/"),
 
   // ------------------------------------------------------------------------
@@ -13,6 +14,7 @@ module.exports = {
   "@core/components": path.resolve(__dirname, "./../src/core/components/"),
   "@core/utils": path.resolve(__dirname, "./../src/core/utils/"),
   "@core/models": path.resolve(__dirname, "./../src/core/models/"),
+  "@core/operators": path.resolve(__dirname, "./../src/core/operators/"),
   "@core/actions-engine": path.resolve(
     __dirname,
     "./../src/core/actions-engine/"
