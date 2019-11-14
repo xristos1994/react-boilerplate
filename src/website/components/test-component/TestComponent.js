@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 
 import "./testComponent.css";
-import { test, doTest } from "models/test-model/props";
+import { test, doTest, requestTest } from "models/test-model/props";
 import { withProps } from "@core/utils/props";
 import { coreUi_openModal, coreUi_openSnackbar } from "@core/models/core-ui";
 
@@ -10,7 +10,8 @@ export const TestComponent = ({
   test,
   doTest,
   coreUi_openModal,
-  coreUi_openSnackbar
+  coreUi_openSnackbar,
+  requestTest
 }) => {
   return (
     <Grid container direction="row" justify="center" alignItems="center">
@@ -24,6 +25,9 @@ export const TestComponent = ({
       <Grid item onClick={() => coreUi_openSnackbar({})}>
         &nbsp; &nbsp; &nbsp; | Open Snackbar
       </Grid>
+      <Grid item onClick={() => requestTest()}>
+        &nbsp; &nbsp; &nbsp; | Request
+      </Grid>
     </Grid>
   );
 };
@@ -32,5 +36,6 @@ export default withProps({
   test,
   doTest,
   coreUi_openModal,
-  coreUi_openSnackbar
+  coreUi_openSnackbar,
+  requestTest
 })(TestComponent);
