@@ -5,7 +5,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Router } from "react-router-dom";
 
 import store from "@core/store";
-import { history } from "routes/utils";
+import { history } from "@core/models/router/utils";
 import theme from "theme";
 import "./App.css";
 import Website from "website";

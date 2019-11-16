@@ -6,7 +6,7 @@ import { routerMiddleware } from "react-router-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { websiteRootEpic, websiteRootReducer } from "models";
-import { history } from "routes/utils";
+import { history } from "@core/models/router/utils";
 import { coreRootReducer, coreRootEpic } from "./models";
 
 // --------------------------------------------------------------------------

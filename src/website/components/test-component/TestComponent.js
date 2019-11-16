@@ -2,8 +2,6 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { push as pushAction } from "react-router-redux";
-
 import { testIcon } from "theme/icons";
 import "./testComponent.css";
 import {
@@ -15,8 +13,7 @@ import {
 } from "models/test-model/props";
 import { withProps } from "@core/utils/props";
 import { coreUi_openModal, coreUi_openSnackbar } from "@core/models/core-ui";
-
-const push = ({ dispatch }) => payload => dispatch(pushAction(payload));
+import { push } from "@core/models/router";
 
 export const TestComponent = ({
   test,

@@ -1,15 +1,7 @@
 import { combineEpics, ofType } from "redux-observable";
-import {
-  map,
-  mergeMap,
-  tap,
-  repeat
-  //take,
-  //combineAll
-  //withLatestFrom
-} from "rxjs/operators";
+import { map, mergeMap, tap, repeat } from "rxjs/operators";
 import { zip } from "rxjs";
-import { push } from "react-router-redux";
+import { pushAction as push } from "@core/models/router";
 
 import { request } from "@core/operators";
 import {
