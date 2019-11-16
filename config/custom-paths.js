@@ -7,6 +7,7 @@ module.exports = {
   utils: path.resolve(__dirname, "./../src/website/utils/"),
   models: path.resolve(__dirname, "./../src/website/models/"),
   services: path.resolve(__dirname, "./../src/website/services/"),
+  routes: path.resolve(__dirname, "./../src/website/routes/"),
   theme: path.resolve(__dirname, "./../src/theme/"),
 
   // ------------------------------------------------------------------------

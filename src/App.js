@@ -1,8 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/styles";
+import { HelmetProvider } from "react-helmet-async";
+import { Router } from "react-router-dom";
 
 import store from "@core/store";
+import { history } from "routes/utils";
 import theme from "theme";
 import "./App.css";
 import Website from "website";
@@ -10,11 +13,15 @@ import Website from "website";
 const App = () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <div className="App">
-          <Website />
-        </div>
-      </ThemeProvider>
+      <Router history={history}>
+        <ThemeProvider theme={theme}>
+          <HelmetProvider>
+            <div className="App">
+              <Website />
+            </div>
+          </HelmetProvider>
+        </ThemeProvider>
+      </Router>
     </Provider>
   );
 };
