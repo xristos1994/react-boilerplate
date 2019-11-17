@@ -15,7 +15,7 @@ const Website = () => {
       <Switch>
         <Route exact path="/route1/:id" component={route1} />
         <Route exact path="/route2" component={route2} />
-        <Route exact path="/route1/route3" component={route3} />
+        <Route exact path="/route3" component={route3} />
         <Route component={route1} />{" "}
         {/*default route --> Spinner  when load push to any of the paths*/}
       </Switch>

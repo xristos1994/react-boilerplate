@@ -1,3 +1,3 @@
 import UiSnackbar from "./UiSnackbar";
 
-export { UiSnackbar };
+export default UiSnackbar;

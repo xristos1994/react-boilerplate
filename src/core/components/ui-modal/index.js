@@ -1,3 +1,3 @@
 import UiModal from "./UiModal";
 
-export { UiModal };
+export default UiModal;
