@@ -1,8 +1,10 @@
 Να φτιαξω LogoutWrapper ant;istoixo me to loginWrapper
-και μέσα του να έχω τα κατάλληλα κουμπιά ανάλογα με το state.account.authType που
+και μέσα του να έχω τα κατάλληλα κουμπιά ανάλογα με το state.account.authTyped που
 για το Facebook καλούν ένα action. Σε αυτό το action ελέγχεται τι έχει το state.account.authType και αν έχει facebook
 κάνει
 window.FB.logout()
 clean state.account,
 state.isLogged: false,
 state.initialRoute: './home',
+
+και οταν προερχεται απο signout να μη μου κανει autoLoad το button του fb
