@@ -1,27 +1,30 @@
 import React from "react";
 //import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
-import { coreAuth_tryAuth } from "@core/models/authentication/props";
+import { coreAuth_tryAuth, isLogged } from "@core/models/authentication/props";
 import { withProps } from "@core/utils/props";
+import { config, loginTypes } from "@core/configuration";
 
-export const LoginWrapper = ({ coreAuth_tryAuth }) => {
+export const LoginWrapper = ({ coreAuth_tryAuth, isLogged }) => {
   // const responseGoogle = response => {
   //   console.log(response);
   // };
 
   const responseFacebook = response => {
-    console.log(response);
-    coreAuth_tryAuth(response);
+    coreAuth_tryAuth({ ...response, authType: loginTypes.facebook });
   };
 
   return (
     <div>
-      <h1>LOGIN WITH FACEBOOK AND GOOGLE</h1>
-      <FacebookLogin
-        appId="720637721748358"
-        fields="name,email,picture"
-        callback={responseFacebook}
-      />
+      <h1>LOGIN</h1>
+      {config.loginTypes.indexOf(loginTypes.facebook) !== -1 && (
+        <FacebookLogin
+          autoLoad={true}
+          appId={config.facebookAppId}
+          fields="name,email,picture"
+          callback={responseFacebook}
+        />
+      )}
       <br />
       <br />
 
@@ -36,5 +39,6 @@ export const LoginWrapper = ({ coreAuth_tryAuth }) => {
 };
 
 export default withProps({
-  coreAuth_tryAuth
+  coreAuth_tryAuth,
+  isLogged
 })(LoginWrapper);

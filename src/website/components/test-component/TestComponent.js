@@ -57,7 +57,7 @@ export const TestComponent = ({
         &nbsp; &nbsp; &nbsp; | <Link to="/route2">Route 2</Link>
       </Grid>
       <Grid item>
-        &nbsp; &nbsp; &nbsp; | <Link to="/route1/route3">Route 3</Link>
+        &nbsp; &nbsp; &nbsp; | <Link to="/route3">Route 3</Link>
       </Grid>
     </Grid>
   );

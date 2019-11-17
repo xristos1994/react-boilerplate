@@ -20,7 +20,8 @@ module.exports = {
     __dirname,
     "./../src/core/actions-engine/"
   ),
-  "@core/utils": path.resolve(__dirname, "./../src/core/utils/")
+  "@core/utils": path.resolve(__dirname, "./../src/core/utils/"),
+  "@core/configuration": path.resolve(__dirname, "./../src/core/configuration/")
 };
 
 module.exports.CUSTOMPATHS;

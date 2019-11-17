@@ -1,10 +1,11 @@
-import lazilyLoaded from '@core/utils/lazilyLoaded';
+import lazilyLoaded from "@core/utils/lazilyLoaded";
 
+const home = lazilyLoaded(() => import("./home"));
+home.route = "/home";
 
-const route1 = lazilyLoaded(() => import('./testRoute1'));
+const login = lazilyLoaded(() => import("./login"));
+login.route = "/login";
 
-const route2 = lazilyLoaded(() => import('./testRoute2'));
+const route3 = lazilyLoaded(() => import("./testRoute3"));
 
-const route3 = lazilyLoaded(() => import('./testRoute3'));
-
-export { route1, route2, route3 };
+export { home, login, route3 };

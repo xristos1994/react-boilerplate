@@ -2,17 +2,17 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 
-export const TestComponent1 = () => {
+export const Home = () => {
   let id = useParams();
   console.log(id);
   return (
     <>
       <Helmet>
-        <title>Route 1</title>
+        <title>My App | Home</title>
       </Helmet>
-      <div> Route 1 </div>
+      <div> Home </div>
     </>
   );
 };
 
-export default TestComponent1;
+export default Home;

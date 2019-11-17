@@ -1,8 +1,10 @@
 import { combineEpics } from "redux-observable";
 import { ofType } from "redux-observable";
 
+import { config } from "@core/configuration";
+
 import { map, tap, mergeMap } from "rxjs/operators";
-import { start } from "@core/models/general/actions";
+import { start, noAction } from "@core/models/general/actions";
 import {
   coreAuth_updateInitialRoute,
   coreAuth_tryAuth,
@@ -14,14 +16,18 @@ const onStartEpic = (action$, state$) => {
   return action$.pipe(
     ofType(start.type),
     tap(() => console.log("In Auth Epic -> " + window.location.hash)),
-    mergeMap(() => [
-      coreAuth_updateInitialRoute(
-        window.location.hash.startsWith("#/route2")
-          ? "#/route1"
-          : window.location.hash
-      ),
-      push("/route2")
-    ])
+    mergeMap(() =>
+      config.hasLogin
+        ? [
+            coreAuth_updateInitialRoute(
+              window.location.hash.startsWith("#/login")
+                ? "#/home"
+                : window.location.hash
+            ),
+            push("/login")
+          ]
+        : [noAction()]
+    )
   );
 };
 
@@ -56,7 +62,7 @@ const onAuthSucceededEpic = (action$, state$) => {
 const onAuthFailededEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreAuth_tryAuth.failed.type),
-    map(({ payload }) => coreAuth_updateAccount(payload))
+    map(() => coreAuth_updateAccount())
   );
 };
 
