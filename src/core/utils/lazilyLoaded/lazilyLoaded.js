@@ -1,11 +1,7 @@
 import React, { lazy, Suspense } from 'react';
+import { Loader } from '@core/components';
 
-//import Spinner from './spinner';
-
-const Spinner = () => <h1>W A I T I N G</h1>
-
-//const lazilyLoaded = (fetchComp, WhileWaiting = Spinner) =>
-const lazilyLoaded = (fetchComp, WhileWaiting = Spinner) =>
+const lazilyLoaded = (fetchComp, WhileWaiting = Loader) =>
   class LazilyLoaded extends React.Component {
     constructor(props) {
       super(props);

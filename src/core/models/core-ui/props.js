@@ -2,7 +2,9 @@ import {
   coreUi_openModalAction,
   coreUi_closeModalAction,
   coreUi_openSnackbarAction,
-  coreUi_closeSnackbarAction
+  coreUi_closeSnackbarAction,
+  coreUi_openDrawerAction,
+  coreUi_closeDrawerAction
 } from "./actions";
 
 const coreUi_openModal = ({ dispatch }) => payload =>
@@ -21,11 +23,22 @@ const coreUi_closeSnackbar = ({ dispatch }) => payload =>
 
 const snackbarProps = ({ state }) => state.core.coreUi.snackbar;
 
+const coreUi_openDrawer = ({ dispatch }) => () =>
+  dispatch(coreUi_openDrawerAction());
+
+const coreUi_closeDrawer = ({ dispatch }) => () =>
+  dispatch(coreUi_closeDrawerAction());
+
+const drawerProps = ({ state }) => state.core.coreUi.drawer;
+
 export {
   coreUi_openModal,
   coreUi_closeModal,
   modalProps,
   coreUi_openSnackbar,
   coreUi_closeSnackbar,
-  snackbarProps
+  snackbarProps,
+  coreUi_openDrawer,
+  coreUi_closeDrawer,
+  drawerProps
 };

@@ -5,7 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import { variantIcon } from "./../../utils";
-import { styles } from "./styles";
+import { styles } from "./style";
 
 const SnackbarContentWrapper = props => {
   const classes = styles();

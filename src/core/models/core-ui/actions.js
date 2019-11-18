@@ -23,3 +23,11 @@ export const coreUi_updateSnackbarState = Action(
   "UPDATE_SNACKBAR_STATE"
 );
 // ~ Snackbar
+
+// Drawer
+  export const coreUi_openDrawerAction = Action("CORE_UI", "OPEN_DRAWER");
+
+  export const coreUi_closeDrawerAction = Action("CORE_UI", "CLOSE_DRAWER");
+
+  export const coreUi_updateDrawerState = Action("CORE_UI", "UPDATE_DRAWER_STATE");
+// ~Drawer

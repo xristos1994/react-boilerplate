@@ -8,3 +8,11 @@ state.isLogged: false,
 state.initialRoute: './home',
 
 και οταν προερχεται απο signout να μη μου κανει autoLoad το button του fb
+
+
+
+
+Το route login να κανει redirect στο home  αν ο χρήστης είναι ήδη συνδεμένος αλλά να τον πετάει εκεί όταν κάνει logout
+
+
+Να φτιάξω higher Order Component  για τον drawer ώστε όταν κάποιος βάζει drawer να το βάλει στη θέσηση του content

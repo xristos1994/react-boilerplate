@@ -1,6 +1,7 @@
+import { config } from "@core/configuration";
 import { coreAuth_updateAccount, coreAuth_updateInitialRoute } from "./actions";
 
-const reducer = (state = { isLogged: false }, action) => {
+const reducer = (state = { isLogged: false || !config.hasLogin }, action) => {
   switch (action.type) {
     case coreAuth_updateAccount.type: {
       return {

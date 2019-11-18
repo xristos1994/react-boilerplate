@@ -7,7 +7,6 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { Scrollbars } from "react-custom-scrollbars";
 
-import "./uiModal.css";
 import { withProps } from "@core/utils/props";
 import { coreUi_closeModal, modalProps } from "@core/models/core-ui/";
 
