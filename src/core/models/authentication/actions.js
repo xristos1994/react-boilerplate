@@ -8,3 +8,5 @@ export const coreAuth_updateInitialRoute = Action(
   "CORE_AUTH",
   "UPDATE_INITIAL_ROUTE"
 );
+
+export const coreAuth_Logout = Action("CORE_AUTH", "LOGOUT");

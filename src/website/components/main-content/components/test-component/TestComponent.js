@@ -1,8 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { testIcon } from "theme/icons";
 import "./testComponent.css";
 import {
   test,
@@ -27,10 +25,6 @@ export const TestComponent = ({
 }) => {
   return (
     <Grid container direction="row" justify="center" alignItems="center">
-      <Helmet>
-        <title>Test</title>
-        <link rel="icon" type="image/png" href={testIcon} sizes="16x16" />
-      </Helmet>
       <Grid item onClick={() => doTest({ test })}>
         Add 1:
       </Grid>
@@ -50,11 +44,11 @@ export const TestComponent = ({
       <Grid item onClick={() => zip_2()}>
         &nbsp; &nbsp; &nbsp; | zip 2
       </Grid>
-      <Grid item onClick={() => push("/route1")}>
-        &nbsp; &nbsp; &nbsp; | Route1
+      <Grid item onClick={() => push("/home")}>
+        &nbsp; &nbsp; &nbsp; | Home
       </Grid>
       <Grid item>
-        &nbsp; &nbsp; &nbsp; | <Link to="/route2">Route 2</Link>
+        &nbsp; &nbsp; &nbsp; | <Link to="/login">Login</Link>
       </Grid>
       <Grid item>
         &nbsp; &nbsp; &nbsp; | <Link to="/route3">Route 3</Link>
