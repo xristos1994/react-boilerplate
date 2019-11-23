@@ -1,15 +1,14 @@
 import { combineEpics } from "redux-observable";
 import { ofType } from "redux-observable";
 
-import { config, loginTypes } from "@core/configuration";
+import { config } from "@core/configuration";
 
 import { map, tap, mergeMap } from "rxjs/operators";
 import { start, noAction } from "@core/models/general/actions";
 import {
   coreAuth_updateInitialRoute,
   coreAuth_tryAuth,
-  coreAuth_updateAccount,
-  coreAuth_Logout
+  coreAuth_updateAccount
 } from "./actions";
 import { pushAction as push } from "@core/models/router";
 
@@ -67,37 +66,11 @@ const onAuthFailededEpic = (action$, state$) => {
   );
 };
 
-const deleteFbCookie = () => {
-  var name = "c_user";
-  var domain = ".staticxx.facebook.com";
-  var path = "/";
-  document.cookie =
-    name +
-    "=" +
-    (path ? ";path=" + path : "") +
-    (domain ? "; domain=" + domain : "") +
-    "; expires=" +
-    "Thu, 01 Jan 1970 00:00:00 GMT";
-};
-
-const onLogoutEpic = (action$, state$) => {
-  return action$.pipe(
-    ofType(coreAuth_Logout.type),
-    tap(() => {
-      state$.value.core.coreAuth.authType === loginTypes.facebook &&
-        window.FB.logout();
-      deleteFbCookie();
-    }),
-    mergeMap(() => [coreAuth_updateAccount(false), push("/login")])
-  );
-};
-
 const coreAuth_epic = combineEpics(
   onStartEpic,
   onTryAuthEpic,
   onAuthSucceededEpic,
-  onAuthFailededEpic,
-  onLogoutEpic
+  onAuthFailededEpic
 );
 
 export default coreAuth_epic;

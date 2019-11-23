@@ -21,7 +21,6 @@ export const LoginWrapper = ({ coreAuth_tryAuth, isLogged }) => {
         <FacebookLogin
           autoLoad={true}
           appId={config.facebookAppId}
-          authType="reauthenticate"
           fields="name,email,picture"
           callback={responseFacebook}
         />
