@@ -8,4 +8,6 @@ login.route = "/login";
 
 const route3 = lazilyLoaded(() => import("./testRoute3"));
 
-export { home, login, route3 };
+const articles = lazilyLoaded(() => import("./articles"));
+
+export { home, login, route3, articles };

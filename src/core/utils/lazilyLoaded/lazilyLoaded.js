@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import { Loader } from '@core/components';
 
-const lazilyLoaded = (fetchComp, WhileWaiting = Loader) =>
+const ForceLoader = () => <Loader forceShow={true} />
+
+const lazilyLoaded = (fetchComp, WhileWaiting = ForceLoader) =>
   class LazilyLoaded extends React.Component {
     constructor(props) {
       super(props);

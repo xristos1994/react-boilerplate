@@ -17,7 +17,10 @@ import {
   coreUi_updateSnackbarState,
   coreUi_openDrawerAction,
   coreUi_closeDrawerAction,
-  coreUi_updateDrawerState
+  coreUi_updateDrawerState,
+  coreUi_openLoaderAction,
+  coreUi_closeLoaderAction,
+  coreUi_updateLoaderState
 } from "./actions";
 import { createSnackbarState, createModalState } from "./helpers";
 
@@ -93,6 +96,22 @@ const coreUi_closeDrawerEpic = (action$, state$) => {
 };
 // ~Drawer
 
+// Drawer
+const coreUi_openLoaderEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(coreUi_openLoaderAction.type),
+    map(() => coreUi_updateLoaderState({ show: true }))
+  );
+};
+
+const coreUi_closeLoaderEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(coreUi_closeLoaderAction.type),
+    map(() => coreUi_updateLoaderState({ show: false }))
+  );
+};
+// ~Drawer
+
 export const coreUi_epic = combineEpics(
   coreUi_openModalEpic,
   coreUi_closeModalEpic,
@@ -100,6 +119,8 @@ export const coreUi_epic = combineEpics(
   coreUi_closeSnackbarEpic,
   coreUi_closeSnackbarAfterMsEpic,
   coreUi_openDrawerEpic,
-  coreUi_closeDrawerEpic
+  coreUi_closeDrawerEpic,
+  coreUi_openLoaderEpic,
+  coreUi_closeLoaderEpic
 );
 export default coreUi_epic;

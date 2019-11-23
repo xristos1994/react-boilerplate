@@ -5,7 +5,9 @@ import {
   coreUi_openSnackbarAction,
   coreUi_closeSnackbarAction,
   coreUi_closeSnackbarAfterMs,
-  coreUi_updateSnackbarState
+  coreUi_updateSnackbarState,
+  coreUi_openLoaderAction,
+  coreUi_closeLoaderAction
 } from "./actions";
 import { coreUi_reducer } from "./reducers";
 import { coreUi_epic } from "./epics";
@@ -16,7 +18,8 @@ import {
   modalProps,
   coreUi_openSnackbar,
   coreUi_closeSnackbar,
-  snackbarProps
+  snackbarProps,
+  loaderProps
 } from "./props";
 
 export {
@@ -34,5 +37,8 @@ export {
   modalProps,
   coreUi_closeSnackbar,
   coreUi_openSnackbar,
-  snackbarProps
+  snackbarProps,
+  coreUi_openLoaderAction,
+  coreUi_closeLoaderAction,
+  loaderProps
 };

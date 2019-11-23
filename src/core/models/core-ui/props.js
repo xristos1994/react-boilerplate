@@ -31,6 +31,8 @@ const coreUi_closeDrawer = ({ dispatch }) => () =>
 
 const drawerProps = ({ state }) => state.core.coreUi.drawer;
 
+const loaderProps = ({ state }) => state.core.coreUi.loader;
+
 export {
   coreUi_openModal,
   coreUi_closeModal,
@@ -40,5 +42,6 @@ export {
   snackbarProps,
   coreUi_openDrawer,
   coreUi_closeDrawer,
-  drawerProps
+  drawerProps,
+  loaderProps
 };

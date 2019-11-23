@@ -1,39 +1,22 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { withProps } from "@core/utils/props";
+import { loaderProps } from "@core/models/core-ui/props";
+import {styles} from './style';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    position:'fixed',
-    width: '50%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-  test: {
-    position:'fixed',
-    top:'64px',
-    backgroundColor: '#777777',
-    width:'100%',
-    height: 'calc(100vh - 64px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    opacity: 0.8
-  }
-}));
-
-const Loader = () => {
-  const classes = useStyles();
-
+const Loader = ({loaderProps, forceShow = false}) => {
+  const {show} = loaderProps
+  const classes = styles();
   return (
-    <div className={classes.test}>
-      <div className={classes.root}>
-        <LinearProgress variant="query" />
-        <LinearProgress variant="query" color="secondary" />
+   (show || forceShow) &&
+      <div className={classes.test}>
+        <div className={classes.root}>
+          <LinearProgress variant="query" />
+          <LinearProgress variant="query" color="secondary" />
+        </div>
       </div>
-    </div>
+
   );
 }
 
-export default Loader;
+export default withProps({ loaderProps })(Loader);

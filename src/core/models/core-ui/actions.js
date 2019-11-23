@@ -31,3 +31,11 @@ export const coreUi_updateSnackbarState = Action(
 
   export const coreUi_updateDrawerState = Action("CORE_UI", "UPDATE_DRAWER_STATE");
 // ~Drawer
+
+// Loader
+  export const coreUi_openLoaderAction = Action("CORE_UI", "OPEN_LOADER");
+
+  export const coreUi_closeLoaderAction = Action("CORE_UI", "CLOSE_LOADER");
+
+  export const coreUi_updateLoaderState = Action("CORE_UI", "UPDATE_LOADER_STATE");
+// ~Loader

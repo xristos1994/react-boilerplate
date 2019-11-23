@@ -2,7 +2,7 @@ import { combineEpics, ofType } from "redux-observable";
 import { map, mergeMap, tap, repeat, takeUntil, catchError, take, debounceTime, buffer, bufferCount, bufferTime  } from "rxjs/operators";
 import { zip, throwError, of, timer, empty, combineLatest, concat, interval, range, forkJoin, race } from "rxjs";
 import { pushAction as push } from "@core/models/router";
-
+import { coreUi_openLoaderAction, coreUi_closeLoaderAction } from "@core/models/core-ui"
 import { noAction } from "@core/models/general"
 import { request } from "@core/operators";
 import {
@@ -31,6 +31,20 @@ const requestTestEpic = (action$, state$) => {
     ofType(requestTestAction.type),
     request(requestTestAction, services.testService)
     //mergeMap(() => [requestTestAction.succeeded({ value: 0 })])
+  );
+};
+
+const requestTestShowLoaderEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(requestTestAction.type),
+    map(() => coreUi_openLoaderAction())
+  );
+};
+
+const requestResponseEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(requestTestAction.succeeded.type, requestTestAction.failed.type),
+    map(() => coreUi_closeLoaderAction())
   );
 };
 
@@ -220,11 +234,6 @@ const bufferTime_Epic = (action$, state$) => {
 };
 
 
-
-
-
-
-
 export const testEpic = combineEpics(
   epic,
   requestTestEpic,
@@ -240,5 +249,7 @@ export const testEpic = combineEpics(
   race_Epic,
   buffer_Epic,
   bufferCount_Epic,
-  bufferTime_Epic
+  bufferTime_Epic,
+  requestTestShowLoaderEpic,
+  requestResponseEpic
 );
