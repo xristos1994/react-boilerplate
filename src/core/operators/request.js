@@ -3,15 +3,15 @@ import { catchError, map, mergeMap } from "rxjs/operators";
 import { of } from "rxjs";
 
 const request = (responseAction, service) =>
-  mergeMap(action =>
-    ajax(service).pipe(
+  mergeMap(action => {
+    return ajax(service(action.payload)).pipe(
       map(response => {
         return responseAction.succeeded(response);
       }),
       catchError(error => {
         return of(responseAction.failed(error));
       })
-    )
-  );
+    );
+  });
 
 export default request;

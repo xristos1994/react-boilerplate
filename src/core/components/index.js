@@ -2,7 +2,14 @@ import UiModal from "./ui-modal";
 import UiSnackbar from "./ui-snackbar";
 import UiAppbar from "./ui-appbar";
 import UiDrawer from "./ui-drawer";
-import LoginWrapper from "./login-wrapper";
 import Loader from "./loader";
+import FormContent from "./formContent";
 
-export { UiModal, UiSnackbar, UiAppbar, UiDrawer, LoginWrapper, Loader };
+export {
+  UiModal,
+  UiSnackbar,
+  UiAppbar,
+  UiDrawer,
+  Loader,
+  FormContent,
+};

@@ -1,76 +1,114 @@
 import { combineEpics } from "redux-observable";
 import { ofType } from "redux-observable";
+import { request } from "@core/operators";
 
 import { config } from "@core/configuration";
 
-import { map, tap, mergeMap } from "rxjs/operators";
+import { map, tap, mergeMap, delay } from "rxjs/operators";
 import { start, noAction } from "@core/models/general/actions";
 import {
   coreAuth_updateInitialRoute,
-  coreAuth_tryAuth,
+  coreAuth_login,
+  coreAuth_logout,
   coreAuth_updateAccount
 } from "./actions";
 import { pushAction as push } from "@core/models/router";
+import services from "./services";
+import {
+  coreUi_openLoaderAction,
+  coreUi_closeLoaderAction
+} from "@core/models/core-ui";
+import { setToken, getToken } from "./utils";
 
 const onStartEpic = (action$, state$) => {
   return action$.pipe(
     ofType(start.type),
-    tap(() => console.log("In Auth Epic -> " + window.location.hash)),
+    tap(() =>
+      console.log("In Auth Epic -> " + getToken("reactBoilerplateToken"))
+    ),
     mergeMap(() =>
       config.hasLogin
         ? [
             coreAuth_updateInitialRoute(
               window.location.hash.startsWith("#/login")
-                ? "#/home"
-                : window.location.hash
+                ? "/home"
+                : window.location.hash.slice(1)
             ),
-            push("/login")
+            getToken() === "null"
+              ? push("/login")
+              : coreAuth_login({
+                  body: {
+                    token: getToken()
+                  }
+                })
           ]
         : [noAction()]
     )
   );
 };
 
-const onTryAuthEpic = (action$, state$) => {
+const showLoaderEpic = action$ => {
   return action$.pipe(
-    ofType(coreAuth_tryAuth.type),
-    map(({ payload }) =>
-      payload.accessToken === undefined ||
-      payload.accessToken === null ||
-      payload.accessToken === ""
-        ? coreAuth_tryAuth.failed(payload)
-        : coreAuth_tryAuth.succeeded(payload)
-    )
+    ofType(coreAuth_login.type),
+    map(() => coreUi_openLoaderAction())
   );
 };
 
-const onAuthSucceededEpic = (action$, state$) => {
+const hideLoaderEpic = action$ => {
   return action$.pipe(
-    ofType(coreAuth_tryAuth.succeeded.type),
-    mergeMap(({ payload }) => [
-      coreAuth_updateAccount(payload),
-      push(
-        state$.value.core.coreAuth.initialRoute.length > 0 &&
-          state$.value.core.coreAuth.initialRoute[0] === "#"
-          ? state$.value.core.coreAuth.initialRoute.slice(1)
-          : state$.value.core.coreAuth.initialRoute
-      )
+    ofType(coreAuth_login.succeeded.type, coreAuth_login.failed.type),
+    map(() => coreUi_closeLoaderAction())
+  );
+};
+
+const loginEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(coreAuth_login.type),
+    request(coreAuth_login, services.login)
+  );
+};
+
+const logoutFromServerEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(coreAuth_logout.type),
+    request(coreAuth_logout, services.logout)
+  );
+};
+
+const logoutLocalEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(coreAuth_logout.type),
+    delay(100),
+    tap(() => setToken("null")),
+    mergeMap(() => [
+      coreAuth_updateAccount({ isLogged: false }),
+      coreAuth_updateInitialRoute("/home"),
+      push("/login")
     ])
   );
 };
 
-const onAuthFailededEpic = (action$, state$) => {
+const loginSucceededEpic = (action$, state$) => {
   return action$.pipe(
-    ofType(coreAuth_tryAuth.failed.type),
-    map(() => coreAuth_updateAccount())
+    ofType(coreAuth_login.succeeded.type),
+    tap(({ payload }) => {
+      setToken(payload.response.account.token);
+    }),
+    mergeMap(({ payload }) => [
+      coreAuth_updateAccount(payload.response.account),
+      push(state$.value.core.coreAuth.initialRoute)
+    ])
   );
 };
 
 const coreAuth_epic = combineEpics(
   onStartEpic,
-  onTryAuthEpic,
-  onAuthSucceededEpic,
-  onAuthFailededEpic
+  showLoaderEpic,
+  hideLoaderEpic,
+  loginEpic,
+  logoutFromServerEpic,
+  logoutLocalEpic,
+  loginSucceededEpic
 );
 
 export default coreAuth_epic;
