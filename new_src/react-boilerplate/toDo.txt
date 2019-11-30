@@ -1,0 +1,18 @@
+Να φτιαξω LogoutWrapper ant;istoixo me to loginWrapper
+και μέσα του να έχω τα κατάλληλα κουμπιά ανάλογα με το state.account.authTyped που
+για το Facebook καλούν ένα action. Σε αυτό το action ελέγχεται τι έχει το state.account.authType και αν έχει facebook
+κάνει
+window.FB.logout()
+clean state.account,
+state.isLogged: false,
+state.initialRoute: './home',
+
+και οταν προερχεται απο signout να μη μου κανει autoLoad το button του fb
+
+
+
+
+Το route login να κανει redirect στο home  αν ο χρήστης είναι ήδη συνδεμένος αλλά να τον πετάει εκεί όταν κάνει logout
+
+
+Να φτιάξω higher Order Component  για τον drawer ώστε όταν κάποιος βάζει drawer να το βάλει στη θέσηση του content
