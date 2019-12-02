@@ -1,10 +1,14 @@
 import { validUsername, validPassword } from "./validators";
+import {
+  CustomTextField,
+  CustomCheckbox,
+} from "@core/components/formContent/components";
 
 const loginFormContent = {
   title: "Log In",
   fields: [
     {
-      component: "TextField",
+      component: CustomTextField,
       name: "username",
       validate: validUsername,
       props: {
@@ -16,7 +20,7 @@ const loginFormContent = {
       },
     },
     {
-      component: "TextField",
+      component: CustomTextField,
       name: "password",
       validate: validPassword,
       props: {
@@ -28,9 +32,10 @@ const loginFormContent = {
       },
     },
     {
-      component: "Checkbox",
+      component: CustomCheckbox,
       name: "remember",
       props: {
+        type: "checkbox",
         label: "Remember",
         position: "start",
       },

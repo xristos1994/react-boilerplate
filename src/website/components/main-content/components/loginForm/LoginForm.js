@@ -25,7 +25,7 @@ const LoginForm = ({ coreAuth_login }) => {
                 event.preventDefault();
                 handleSubmit();
               }}
-              disabled={submitting || !valid}
+              disabled={submitting}
             >
               Log In
             </Button>
@@ -37,5 +37,5 @@ const LoginForm = ({ coreAuth_login }) => {
 };
 
 export default withProps({
-  coreAuth_login
+  coreAuth_login,
 })(LoginForm);
