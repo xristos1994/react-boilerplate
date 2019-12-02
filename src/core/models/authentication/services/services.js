@@ -11,9 +11,9 @@ const post = ({ fullUrl = "", path = "", token = "", body }) => ({
     "X-Powered-By": "Express",
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json; charset=utf-8",
-    authorization: token === "" ? token : "Bearer " + token
+    authorization: token === "" ? token : "Bearer " + token,
   },
-  body
+  body,
 });
 
 const login = ({ body }) => post({ path: "auth/login", body });
