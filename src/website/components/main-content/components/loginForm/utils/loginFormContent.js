@@ -1,8 +1,5 @@
 import { validUsername, validPassword } from "./validators";
-import {
-  CustomTextField,
-  CustomCheckbox,
-} from "@core/components/formContent/components";
+import { CustomTextField } from "@core/components/formContent/components";
 
 const loginFormContent = {
   title: "Log In",
@@ -29,15 +26,6 @@ const loginFormContent = {
         autoComplete: "current-password",
         margin: "normal",
         required: false,
-      },
-    },
-    {
-      component: CustomCheckbox,
-      name: "remember",
-      props: {
-        type: "checkbox",
-        label: "Remember",
-        position: "start",
       },
     },
   ],

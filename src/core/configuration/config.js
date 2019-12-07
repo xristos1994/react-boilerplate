@@ -1,5 +1,5 @@
 const config = {
-  hasLogin: true,
+  hasLogin: false,
 };
 
 export default config;
