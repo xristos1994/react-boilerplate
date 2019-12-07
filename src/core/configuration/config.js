@@ -1,5 +1,6 @@
 const config = {
-  hasLogin: false,
+  hasLogin: true,
+  baseUrl: "http://localhost:3000/",
 };
 
 export default config;

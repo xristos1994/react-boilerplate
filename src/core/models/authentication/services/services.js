@@ -1,20 +1,5 @@
 import { getToken } from "./../utils";
-
-const baseUrl = "http://localhost:3000/";
-
-//const testService = { url: `https://api.github.com/users` };
-
-const post = ({ fullUrl = "", path = "", token = "", body }) => ({
-  url: fullUrl !== "" ? fullUrl : baseUrl + path,
-  method: "POST",
-  headers: {
-    "X-Powered-By": "Express",
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json; charset=utf-8",
-    authorization: token === "" ? token : "Bearer " + token,
-  },
-  body,
-});
+import { post } from "@core/utils/service-creators";
 
 const login = ({ body }) => post({ path: "auth/login", body });
 

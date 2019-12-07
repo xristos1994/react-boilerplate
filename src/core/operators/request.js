@@ -10,7 +10,7 @@ const request = (responseAction, service) =>
       }),
       catchError(error => {
         return of(responseAction.failed(error));
-      })
+      }),
     );
   });
 
