@@ -1,24 +1,41 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-//import Article from "components/main-content/components/article";
-//import { withProps } from "@core/utils/props";
-// /import { articles, isFetching, fetchArticles } from "models/articles/props";
+import Articles from "components/main-content/components/articles";
+import { withProps } from "@core/utils/props";
+import {
+  articles,
+  isFetching,
+  fetchArticlesByCategory,
+  articlesCriteria,
+} from "models/articles/props";
 
-//export const Article_ = ({match, articles, isFetching, fetchArticles }) => {
-export const Category_ = ({ match }) => {
-  // if (!isFetching && !articles) {
-  //   fetchArticles();
-  // }
+export const Category_ = ({
+  match,
+  articles,
+  isFetching,
+  fetchArticlesByCategory,
+  articlesCriteria,
+}) => {
+  if (
+    !isFetching &&
+    articlesCriteria !== `category_${match.params.categoryId}`
+  ) {
+    fetchArticlesByCategory(match.params.categoryId);
+  }
   return (
     <>
       <Helmet>
         <title>My App | Category</title>
       </Helmet>
       <div>Category {match.params.categoryId}</div>
-      {/* <Articles /> */}
+      <Articles />
     </>
   );
 };
 
-export default Category_;
-//export default withProps({ articles, isFetching, fetchArticles })(Articles_);
+export default withProps({
+  articles,
+  isFetching,
+  fetchArticlesByCategory,
+  articlesCriteria,
+})(Category_);

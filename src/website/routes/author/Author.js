@@ -1,24 +1,38 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-//import Article from "components/main-content/components/article";
-//import { withProps } from "@core/utils/props";
-// /import { articles, isFetching, fetchArticles } from "models/articles/props";
+import Articles from "components/main-content/components/articles";
+import { withProps } from "@core/utils/props";
+import {
+  articles,
+  isFetching,
+  fetchArticlesByAuthor,
+  articlesCriteria,
+} from "models/articles/props";
 
-//export const Article_ = ({match, articles, isFetching, fetchArticles }) => {
-export const Author_ = ({ match }) => {
-  // if (!isFetching && !articles) {
-  //   fetchArticles();
-  // }
+export const Author_ = ({
+  match,
+  articles,
+  isFetching,
+  fetchArticlesByAuthor,
+  articlesCriteria,
+}) => {
+  if (!isFetching && articlesCriteria !== `author_${match.params.authorId}`) {
+    fetchArticlesByAuthor(match.params.authorId);
+  }
   return (
     <>
       <Helmet>
         <title>My App | Author</title>
       </Helmet>
       <div>Author {match.params.authorId}</div>
-      {/* <Articles /> */}
+      <Articles />
     </>
   );
 };
 
-export default Author_;
-//export default withProps({ articles, isFetching, fetchArticles })(Articles_);
+export default withProps({
+  articles,
+  isFetching,
+  fetchArticlesByAuthor,
+  articlesCriteria,
+})(Author_);
