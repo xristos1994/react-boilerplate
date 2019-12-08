@@ -20,7 +20,7 @@ export const mockedArticles = [
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
     author: "Christos Korompokis",
     comments: 13,
-    id: 1,
+    id: 2,
     image: {
       url:
         "https://www.xmple.com/wallpaper/green-single-solid-color-plain-one-colour-1920x1080-c-d5f4db-f-24.svg",
@@ -34,7 +34,7 @@ export const mockedArticles = [
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
     author: "Christos Korompokis",
     comments: 13,
-    id: 1,
+    id: 3,
     image: {
       url:
         "https://www.xmple.com/wallpaper/green-single-solid-color-plain-one-colour-1920x1080-c-d5f4db-f-24.svg",
@@ -48,7 +48,7 @@ export const mockedArticles = [
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
     author: "Christos Korompokis",
     comments: 13,
-    id: 1,
+    id: 4,
     image: {
       url:
         "https://www.xmple.com/wallpaper/green-single-solid-color-plain-one-colour-1920x1080-c-d5f4db-f-24.svg",
@@ -62,7 +62,7 @@ export const mockedArticles = [
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
     author: "Christos Korompokis",
     comments: 13,
-    id: 1,
+    id: 5,
     image: {
       url:
         "https://www.xmple.com/wallpaper/green-single-solid-color-plain-one-colour-1920x1080-c-d5f4db-f-24.svg",
@@ -76,7 +76,7 @@ export const mockedArticles = [
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
     author: "Christos Korompokis",
     comments: 13,
-    id: 1,
+    id: 6,
     image: {
       url:
         "https://www.xmple.com/wallpaper/green-single-solid-color-plain-one-colour-1920x1080-c-d5f4db-f-24.svg",

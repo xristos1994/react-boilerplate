@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { withProps } from "@core/utils/props";
 import { isLogged } from "@core/models/authentication/props";
 import { config } from "@core/configuration";
-import { home, login, route3, articles } from "routes";
+import { home, login, route3, articles, article } from "routes";
 
 const SwitchRoutes = ({ isLogged }) => {
   return (
@@ -24,6 +24,7 @@ const SwitchRoutes = ({ isLogged }) => {
             <Route exact path="/home" component={home} />
             <Route exact path="/route3" component={route3} />
             <Route exact path="/articles" component={articles} />
+            <Route exact path="/article/:articleId" component={article} />
             <Route component={home} />
           </Switch>
         )}
@@ -33,5 +34,5 @@ const SwitchRoutes = ({ isLogged }) => {
 };
 
 export default withProps({
-  isLogged
+  isLogged,
 })(SwitchRoutes);

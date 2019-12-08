@@ -10,4 +10,6 @@ const route3 = lazilyLoaded(() => import("./testRoute3"));
 
 const articles = lazilyLoaded(() => import("./articles"));
 
-export { home, login, route3, articles };
+const article = lazilyLoaded(() => import("./article"));
+
+export { home, login, route3, articles, article };

@@ -3,18 +3,20 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Link as MaterialLink } from "@material-ui/core";
 import { styles } from "./style";
+import { push } from "@core/models/router/props";
+import { withProps } from "@core/utils/props";
 
-//import { withProps } from "@core/utils/props";
-
-const Article = ({ article }) => {
-  //const { id, title, category, shortText, author, comments, image } = article;
-  const { title, category, shortText, author, comments, image } = article;
+const Article = ({ article, push }) => {
+  const { id, title, category, shortText, author, comments, image } = article;
   const classes = styles();
   return (
     <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
       <Paper
         className={classes.paper}
-        onClick={() => console.log("Card Clicked")}
+        onClick={() => {
+          push(`/article/${id}`);
+          console.log("Card Clicked");
+        }}
       >
         <Grid container direction="row">
           <div className={classes.imgContainer}>
@@ -65,5 +67,4 @@ const Article = ({ article }) => {
   );
 };
 
-export default Article;
-//export default withProps({})(Articles);
+export default withProps({ push })(Article);
