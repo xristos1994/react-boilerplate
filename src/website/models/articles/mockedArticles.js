@@ -1,10 +1,10 @@
 export const mockedArticles = [
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 1,
     image: {
@@ -15,10 +15,10 @@ export const mockedArticles = [
   },
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 2,
     image: {
@@ -29,10 +29,10 @@ export const mockedArticles = [
   },
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 3,
     image: {
@@ -43,10 +43,10 @@ export const mockedArticles = [
   },
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 4,
     image: {
@@ -57,10 +57,10 @@ export const mockedArticles = [
   },
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 5,
     image: {
@@ -71,10 +71,10 @@ export const mockedArticles = [
   },
   {
     title: "Title Title Ti Title Title Title",
-    category: "Category",
+    category: { name: "Category", id: 1 },
     shortText:
       "Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text Short Text",
-    author: "Christos Korompokis",
+    author: { name: "Christos Korompokis", id: 1 },
     comments: 13,
     id: 6,
     image: {

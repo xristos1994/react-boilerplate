@@ -15,7 +15,6 @@ const Article = ({ article, push }) => {
         className={classes.paper}
         onClick={() => {
           push(`/article/${id}`);
-          console.log("Card Clicked");
         }}
       >
         <Grid container direction="row">
@@ -28,9 +27,16 @@ const Article = ({ article, push }) => {
             </div>
           </Grid>
           <Grid item xs={12}>
-            <div>
-              <h5 className={classes.categoryText}>{category}</h5>
-            </div>
+            <MaterialLink
+              classes={{ root: classes.categoryText }}
+              component="button"
+              onClick={e => {
+                e.stopPropagation();
+                push(`/category/${category.id}`);
+              }}
+            >
+              {category.name}
+            </MaterialLink>
           </Grid>
           <Grid item xs={12}>
             <div className={classes.shortText}>{shortText}</div>
@@ -41,10 +47,10 @@ const Article = ({ article, push }) => {
               component="button"
               onClick={e => {
                 e.stopPropagation();
-                console.log("Author Clicked");
+                push(`/author/${author.id}`);
               }}
             >
-              By {author}
+              By {author.name}
             </MaterialLink>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -55,7 +61,7 @@ const Article = ({ article, push }) => {
               component="button"
               onClick={e => {
                 e.stopPropagation();
-                console.log("More Clicked");
+                push(`/article/${id}`);
               }}
             >
               more . . .

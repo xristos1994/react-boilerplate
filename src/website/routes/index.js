@@ -1,3 +1,11 @@
-import { home, login, route3, articles, article } from "./routes";
+import {
+  home,
+  login,
+  route3,
+  articles,
+  article,
+  author,
+  category,
+} from "./routes";
 
-export { home, login, route3, articles, article };
+export { home, login, route3, articles, article, author, category };

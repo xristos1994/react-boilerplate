@@ -12,4 +12,8 @@ const articles = lazilyLoaded(() => import("./articles"));
 
 const article = lazilyLoaded(() => import("./article"));
 
-export { home, login, route3, articles, article };
+const author = lazilyLoaded(() => import("./author"));
+
+const category = lazilyLoaded(() => import("./category"));
+
+export { home, login, route3, articles, article, author, category };
