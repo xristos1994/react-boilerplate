@@ -1,3 +1,8 @@
-import { testService, testService1 } from "./services";
+import {
+  testService,
+  testService1,
+  successService,
+  failService,
+} from "./services";
 
-export { testService, testService1 };
+export { testService, testService1, successService, failService };
