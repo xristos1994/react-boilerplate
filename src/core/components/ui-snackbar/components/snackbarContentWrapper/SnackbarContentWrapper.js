@@ -30,7 +30,7 @@ const SnackbarContentWrapper = props => {
           onClick={onClose}
         >
           <CloseIcon className={classes.icon} />
-        </IconButton>
+        </IconButton>,
       ]}
       {...other}
     />
@@ -41,7 +41,7 @@ SnackbarContentWrapper.propTypes = {
   className: PropTypes.string,
   message: PropTypes.string,
   onClose: PropTypes.func,
-  variant: PropTypes.oneOf(["error", "info", "success", "warning"])
+  variant: PropTypes.oneOf(["error", "info", "success", "warning"]),
 };
 
 export default SnackbarContentWrapper;

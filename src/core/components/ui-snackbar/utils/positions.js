@@ -1,20 +1,20 @@
 const positions = {
   topLeft: {
     vertical: "top",
-    horizontal: "left"
+    horizontal: "left",
   },
-  topRght: {
+  topRight: {
     vertical: "top",
-    horizontal: "right"
+    horizontal: "right",
   },
   bottomLeft: {
     vertical: "bottom",
-    horizontal: "left"
+    horizontal: "left",
   },
   bottomRight: {
     vertical: "bottom",
-    horizontal: "right"
-  }
+    horizontal: "right",
+  },
 };
 
 export default positions;
