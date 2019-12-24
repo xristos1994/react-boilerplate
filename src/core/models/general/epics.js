@@ -1,6 +1,6 @@
-import { of } from "rxjs";
-import { combineEpics } from "redux-observable";
-import { start } from "./actions";
+import { of } from 'rxjs';
+import { combineEpics } from 'redux-observable';
+import { start } from './actions';
 
 const startEpic = () => of(start());
 

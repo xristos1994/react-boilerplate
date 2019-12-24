@@ -1,4 +1,4 @@
-import { post, get } from "@core/utils/service-creators";
+import { post, get } from '@core/utils/service-creators';
 
 const testService1 = () => post({ fullUrl: `https://httpbin.org/delay/2` });
 

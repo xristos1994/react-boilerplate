@@ -1,10 +1,10 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Article from "./components/article";
-import { withProps } from "@core/utils/props";
-import { articles, isFetching } from "models/articles/props";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Article from './components/article';
+import { withProps } from '@core/utils/props';
+import { articles, isFetching } from 'models/articles/props';
 
-import { styles } from "./style";
+import { styles } from './style';
 
 export const Articles = ({ articles, isFetching }) => {
   const classes = styles();

@@ -1,3 +1,3 @@
-import FormContent from "./FormContent";
+import FormContent from './FormContent';
 
 export default FormContent;

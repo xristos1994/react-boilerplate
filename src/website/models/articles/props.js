@@ -4,7 +4,7 @@ import {
   fetchArticlesByCategory as fetchArticlesByCategoryAction,
   updateIsFetchingArticles as updateIsFetchingArticlesAction,
   fetchArticle as fetchArticleAction,
-} from "./actions";
+} from './actions';
 
 const fetchArticles = ({ dispatch }) => payload =>
   dispatch(fetchArticlesAction(payload));

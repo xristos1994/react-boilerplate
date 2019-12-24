@@ -3,6 +3,6 @@ import {
   testService1,
   successService,
   failService,
-} from "./services";
+} from './services';
 
 export { testService, testService1, successService, failService };

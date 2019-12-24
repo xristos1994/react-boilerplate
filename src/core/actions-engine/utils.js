@@ -1,7 +1,7 @@
 export const Action = (groupName, name) => {
   const action = payload => ({
     type: `${groupName}//${name}`,
-    payload
+    payload,
   });
   action.type = `${groupName}//${name}`;
   return action;

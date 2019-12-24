@@ -1,4 +1,4 @@
-import { articlesEpic } from "./epics";
-import { articlesReducer } from "./reducer";
+import { articlesEpic } from './epics';
+import { articlesReducer } from './reducer';
 
 export { articlesEpic, articlesReducer };

@@ -1,5 +1,3 @@
-import UiDrawer from "./UiDrawer";
-import { uiDrawer } from "./uiDrawer.stories";
+import UiDrawer from './UiDrawer';
 
-export { uiDrawer };
 export default UiDrawer;

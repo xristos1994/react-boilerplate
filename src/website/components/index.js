@@ -1,3 +1,3 @@
-import MainContent from "./main-content"
+import MainContent from './main-content';
 
 export { MainContent };

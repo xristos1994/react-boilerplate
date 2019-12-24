@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Loader } from '@core/components';
 
-const ForceLoader = () => <Loader forceShow={true} />
+const ForceLoader = () => <Loader forceShow={true} />;
 
 const lazilyLoaded = (fetchComp, WhileWaiting = ForceLoader) =>
   class LazilyLoaded extends React.Component {

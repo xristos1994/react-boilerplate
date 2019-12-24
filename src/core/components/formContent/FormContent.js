@@ -1,6 +1,6 @@
-import React from "react";
-import { Field } from "react-final-form";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import { Field } from 'react-final-form';
+import Grid from '@material-ui/core/Grid';
 
 const FormContent = ({ errors, content }) => {
   return (

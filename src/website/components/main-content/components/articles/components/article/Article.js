@@ -1,10 +1,10 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { Link as MaterialLink } from "@material-ui/core";
-import { styles } from "./style";
-import { push } from "@core/models/router/props";
-import { withProps } from "@core/utils/props";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { Link as MaterialLink } from '@material-ui/core';
+import { styles } from './style';
+import { push } from '@core/models/router/props';
+import { withProps } from '@core/utils/props';
 
 const Article = ({ article, push }) => {
   const { id, title, category, shortText, author, comments, image } = article;

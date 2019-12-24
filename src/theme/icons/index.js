@@ -1,3 +1,3 @@
-import testIcon from './testIcon.png'
+import testIcon from './testIcon.png';
 
-export {testIcon}
+export { testIcon };

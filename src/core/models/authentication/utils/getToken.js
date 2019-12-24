@@ -1,3 +1,3 @@
-const getToken = () => window.localStorage.getItem("reactBoilerplateToken");
+const getToken = () => window.localStorage.getItem('reactBoilerplateToken');
 
 export default getToken;

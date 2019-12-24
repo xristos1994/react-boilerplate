@@ -1,3 +1,3 @@
-import loginFormContent from "./loginFormContent";
+import loginFormContent from './loginFormContent';
 
 export { loginFormContent };

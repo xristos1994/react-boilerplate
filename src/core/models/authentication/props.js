@@ -1,7 +1,7 @@
 import {
   coreAuth_login as coreAuth_loginAction,
-  coreAuth_logout as coreAuth_logoutAction
-} from "./actions";
+  coreAuth_logout as coreAuth_logoutAction,
+} from './actions';
 
 const isLogged = ({ state }) => state.core.coreAuth.account.isLogged;
 

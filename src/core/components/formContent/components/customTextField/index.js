@@ -1,3 +1,3 @@
-import CustomTextField from "./CustomTextField";
+import CustomTextField from './CustomTextField';
 
 export default CustomTextField;

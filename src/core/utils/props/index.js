@@ -1,3 +1,3 @@
-import { withProps } from "./createProps";
+import { withProps } from './createProps';
 
 export { withProps };

@@ -1,6 +1,6 @@
-import { ajax } from "rxjs/ajax";
-import { catchError, map, mergeMap } from "rxjs/operators";
-import { of } from "rxjs";
+import { ajax } from 'rxjs/ajax';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 const request = (responseAction, service) =>
   mergeMap(action => {
@@ -10,7 +10,7 @@ const request = (responseAction, service) =>
       }),
       catchError(error => {
         return of(responseAction.failed(error));
-      }),
+      })
     );
   });
 

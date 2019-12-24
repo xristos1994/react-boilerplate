@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { withProps } from "@core/utils/props";
-import { isLogged } from "@core/models/authentication/props";
-import { config } from "@core/configuration";
+import { withProps } from '@core/utils/props';
+import { isLogged } from '@core/models/authentication/props';
+import { config } from '@core/configuration';
 import {
   home,
   login,
@@ -12,7 +12,7 @@ import {
   article,
   author,
   category,
-} from "routes";
+} from 'routes';
 
 const SwitchRoutes = ({ isLogged }) => {
   return (

@@ -1,12 +1,8 @@
-import { combineEpics } from "redux-observable";
-import { ofType } from "redux-observable";
-import { interval } from "rxjs";
+import { combineEpics } from 'redux-observable';
+import { ofType } from 'redux-observable';
+import { interval } from 'rxjs';
 
-import {
-  map,
-  mergeMap,
-  delayWhen
-} from "rxjs/operators";
+import { map, mergeMap, delayWhen } from 'rxjs/operators';
 import {
   coreUi_openModalAction,
   coreUi_closeModalAction,
@@ -20,18 +16,18 @@ import {
   coreUi_updateDrawerState,
   coreUi_openLoaderAction,
   coreUi_closeLoaderAction,
-  coreUi_updateLoaderState
-} from "./actions";
-import { createSnackbarState, createModalState } from "./helpers";
+  coreUi_updateLoaderState,
+} from './actions';
+import { createSnackbarState, createModalState } from './helpers';
 
 // Modal
-const coreUi_openModalEpic = (action$, state$) => {
+export const coreUi_openModalEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_openModalAction.type),
     map(({ payload }) =>
       coreUi_updateModalState({
         ...createModalState(payload),
-        show: true
+        show: true,
       })
     )
   );
@@ -52,12 +48,12 @@ const coreUi_openSnackbarEpic = (action$, state$) => {
     mergeMap(({ payload }) => [
       coreUi_updateSnackbarState({
         ...createSnackbarState(payload),
-        show: true
+        show: true,
       }),
       coreUi_closeSnackbarAfterMs({
         ...createSnackbarState(payload),
-        duration: payload.duration ? payload.duration : 2000
-      })
+        duration: payload.duration ? payload.duration : 2000,
+      }),
     ])
   );
 };

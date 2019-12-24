@@ -1,11 +1,16 @@
-import { coreUi_updateModalState, coreUi_updateSnackbarState, coreUi_updateDrawerState, coreUi_updateLoaderState } from "./actions";
+import {
+  coreUi_updateModalState,
+  coreUi_updateSnackbarState,
+  coreUi_updateDrawerState,
+  coreUi_updateLoaderState,
+} from './actions';
 
 const reducer = (
   state = {
     modal: { show: false },
     snackbar: { show: false },
-    drawer: {show: false},
-    loader: {show: false}
+    drawer: { show: false },
+    loader: { show: false },
   },
   action
 ) => {
@@ -16,7 +21,7 @@ const reducer = (
     case coreUi_updateSnackbarState.type: {
       return {
         ...state,
-        snackbar: action.payload
+        snackbar: action.payload,
       };
     }
     case coreUi_updateDrawerState.type: {
@@ -31,7 +36,7 @@ const reducer = (
 };
 
 export const coreUi_reducer = {
-  coreUi: reducer
+  coreUi: reducer,
 };
 
 export default coreUi_reducer;

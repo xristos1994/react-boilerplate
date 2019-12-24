@@ -3,7 +3,7 @@ import {
   updateIsFetchingArticles,
   updateArticlesCtiteria,
   updateArticle,
-} from "./actions";
+} from './actions';
 
 const reducer = (state = { isFetching: false }, action) => {
   switch (action.type) {

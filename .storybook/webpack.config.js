@@ -1,6 +1,5 @@
 "use strict";
-const CUSTOMPATHS = require("./custom-paths");
-const path = require("path");
+const CUSTOMPATHS = require("./../config/custom-paths");
 
 module.exports = {
   resolve: {

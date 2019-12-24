@@ -1,4 +1,4 @@
-import formValidators from "@core/utils/formValidators";
+import formValidators from '@core/utils/formValidators';
 
 const { required } = formValidators;
 

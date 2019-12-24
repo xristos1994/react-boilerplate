@@ -5,12 +5,13 @@ import {
   zipAction_2,
   action1 as action1_,
   action2 as action2_,
-  abort_zip as abort_zip_
-} from "./actions";
+  abort_zip as abort_zip_,
+} from './actions';
 
 const doTest = ({ dispatch }) => payload => dispatch(testAction(payload));
 
-const requestTest = ({ dispatch }) => payload => dispatch(requestTestAction(payload));
+const requestTest = ({ dispatch }) => payload =>
+  dispatch(requestTestAction(payload));
 
 const zip_1 = ({ dispatch }) => () => dispatch(zipAction_1());
 

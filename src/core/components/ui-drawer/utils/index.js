@@ -1,3 +1,3 @@
-import calcDrawerWidth from "./calcDrawerWidth";
+import calcDrawerWidth from './calcDrawerWidth';
 
-export {calcDrawerWidth};
+export { calcDrawerWidth };

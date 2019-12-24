@@ -4,8 +4,8 @@ import {
   coreUi_openSnackbarAction,
   coreUi_closeSnackbarAction,
   coreUi_openDrawerAction,
-  coreUi_closeDrawerAction
-} from "./actions";
+  coreUi_closeDrawerAction,
+} from './actions';
 
 const coreUi_openModal = ({ dispatch }) => payload =>
   dispatch(coreUi_openModalAction(payload));
@@ -43,5 +43,5 @@ export {
   coreUi_openDrawer,
   coreUi_closeDrawer,
   drawerProps,
-  loaderProps
+  loaderProps,
 };

@@ -1,3 +1,3 @@
-import SnackbarContentWrapper from "./SnackbarContentWrapper";
+import SnackbarContentWrapper from './SnackbarContentWrapper';
 
 export default SnackbarContentWrapper;

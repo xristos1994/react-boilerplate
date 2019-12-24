@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
-import SnackbarContent from "@material-ui/core/SnackbarContent";
-import { variantIcon } from "./../../utils";
-import { styles } from "./style";
+import React from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import { variantIcon } from './../../utils';
+import { styles } from './style';
 
 const SnackbarContentWrapper = props => {
   const classes = styles();
@@ -41,7 +41,7 @@ SnackbarContentWrapper.propTypes = {
   className: PropTypes.string,
   message: PropTypes.string,
   onClose: PropTypes.func,
-  variant: PropTypes.oneOf(["error", "info", "success", "warning"]),
+  variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']),
 };
 
 export default SnackbarContentWrapper;

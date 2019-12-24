@@ -1,6 +1,3 @@
-import UiSnackbar from "./UiSnackbar";
-import { uiSnackbar } from "./uiSnackbar.stories";
-
-export { uiSnackbar };
+import UiSnackbar from './UiSnackbar';
 
 export default UiSnackbar;

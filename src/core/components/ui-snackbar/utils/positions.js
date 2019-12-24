@@ -1,19 +1,19 @@
 const positions = {
   topLeft: {
-    vertical: "top",
-    horizontal: "left",
+    vertical: 'top',
+    horizontal: 'left',
   },
   topRight: {
-    vertical: "top",
-    horizontal: "right",
+    vertical: 'top',
+    horizontal: 'right',
   },
   bottomLeft: {
-    vertical: "bottom",
-    horizontal: "left",
+    vertical: 'bottom',
+    horizontal: 'left',
   },
   bottomRight: {
-    vertical: "bottom",
-    horizontal: "right",
+    vertical: 'bottom',
+    horizontal: 'right',
   },
 };
 

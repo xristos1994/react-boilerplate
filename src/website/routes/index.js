@@ -6,6 +6,6 @@ import {
   article,
   author,
   category,
-} from "./routes";
+} from './routes';
 
 export { home, login, route3, articles, article, author, category };

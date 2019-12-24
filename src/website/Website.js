@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { MainContent } from "components";
-import { UiModal, UiSnackbar, UiAppbar, UiDrawer } from "@core/components";
+import { MainContent } from 'components';
+import { UiModal, UiSnackbar, UiAppbar, UiDrawer } from '@core/components';
 
 const Website = () => {
   return (

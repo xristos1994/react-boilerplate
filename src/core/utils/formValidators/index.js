@@ -1,3 +1,3 @@
-import * as formValidators from "./formValidators";
+import * as formValidators from './formValidators';
 
 export default formValidators;

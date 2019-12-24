@@ -1,14 +1,14 @@
-import { combineEpics, ofType } from "redux-observable";
-import { mergeMap } from "rxjs/operators";
+import { combineEpics, ofType } from 'redux-observable';
+import { mergeMap } from 'rxjs/operators';
 //import { pushAction as push } from "@core/models/router";
 //import { noAction } from "@core/models/general";
 import {
   coreUi_openLoaderAction,
   coreUi_closeLoaderAction,
   coreUi_openSnackbarAction,
-} from "@core/models/core-ui";
+} from '@core/models/core-ui';
 
-import { request } from "@core/operators";
+import { request } from '@core/operators';
 import {
   fetchArticles,
   fetchArticlesByAuthor,
@@ -18,28 +18,28 @@ import {
   updateArticlesCtiteria,
   fetchArticle,
   updateArticle,
-} from "./actions";
-import * as services from "services";
+} from './actions';
+import * as services from 'services';
 
-import { mockedArticles } from "./mockedArticles";
-import { mockedArticle } from "./mockedArticle";
+import { mockedArticles } from './mockedArticles';
+import { mockedArticle } from './mockedArticle';
 
 const fetchArticlesPrepareEpic = (action$, state$) => {
   return action$.pipe(
     ofType(fetchArticles.type),
     mergeMap(() => [
-      updateArticlesCtiteria("all"),
+      updateArticlesCtiteria('all'),
       updateIsFetchingArticles(true),
       updateArticles(),
       coreUi_openLoaderAction(),
-    ]),
+    ])
   );
 };
 
 const fetchArticlesEpic = (action$, state$) => {
   return action$.pipe(
     ofType(fetchArticles.type),
-    request(fetchArticles, services.successService),
+    request(fetchArticles, services.successService)
   );
 };
 
@@ -51,14 +51,14 @@ const fetchArticlesByAuthorPrepareEpic = (action$, state$) => {
       updateIsFetchingArticles(true),
       updateArticles(),
       coreUi_openLoaderAction(),
-    ]),
+    ])
   );
 };
 
 const fetchArticlesByAuthorEpic = (action$, state$) => {
   return action$.pipe(
     ofType(fetchArticlesByAuthor.type),
-    request(fetchArticles, services.successService),
+    request(fetchArticles, services.successService)
   );
 };
 
@@ -70,14 +70,14 @@ const fetchArticlesByCategoryPrepareEpic = (action$, state$) => {
       updateIsFetchingArticles(true),
       updateArticles(),
       coreUi_openLoaderAction(),
-    ]),
+    ])
   );
 };
 
 const fetchArticlesByCategoryEpic = (action$, state$) => {
   return action$.pipe(
     ofType(fetchArticlesByCategory.type),
-    request(fetchArticles, services.successService),
+    request(fetchArticles, services.successService)
   );
 };
 
@@ -88,7 +88,7 @@ const fetchArticlesSucceededEpic = (action$, state$) => {
       updateArticles(mockedArticles),
       updateIsFetchingArticles(false),
       coreUi_closeLoaderAction(),
-    ]),
+    ])
   );
 };
 
@@ -100,10 +100,10 @@ const fetchArticlesFailedEpic = (action$, state$) => {
       updateIsFetchingArticles(false),
       coreUi_closeLoaderAction(),
       coreUi_openSnackbarAction({
-        type: "error",
-        message: "Could not Fetch Articles",
+        type: 'error',
+        message: 'Could not Fetch Articles',
       }),
-    ]),
+    ])
   );
 };
 
@@ -114,14 +114,14 @@ const fetchArticlePrepareEpic = (action$, state$) => {
       updateArticle(),
       updateIsFetchingArticles(true),
       coreUi_openLoaderAction(),
-    ]),
+    ])
   );
 };
 
 const fetchArticleEpic = (action$, state$) => {
   return action$.pipe(
     ofType(fetchArticle.type),
-    request(fetchArticle, services.successService),
+    request(fetchArticle, services.successService)
   );
 };
 
@@ -132,7 +132,7 @@ const fetchArticleSucceededEpic = (action$, state$) => {
       updateArticle(mockedArticle),
       updateIsFetchingArticles(false),
       coreUi_closeLoaderAction(),
-    ]),
+    ])
   );
 };
 
@@ -144,10 +144,10 @@ const fetchArticleFailedEpic = (action$, state$) => {
       updateIsFetchingArticles(false),
       coreUi_closeLoaderAction(),
       coreUi_openSnackbarAction({
-        type: "error",
-        message: "Could not Fetch Article",
+        type: 'error',
+        message: 'Could not Fetch Article',
       }),
-    ]),
+    ])
   );
 };
 
@@ -163,5 +163,5 @@ export const articlesEpic = combineEpics(
   fetchArticlePrepareEpic,
   fetchArticleEpic,
   fetchArticleSucceededEpic,
-  fetchArticleFailedEpic,
+  fetchArticleFailedEpic
 );

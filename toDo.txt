@@ -16,3 +16,8 @@ state.initialRoute: './home',
 
 
 Να φτιάξω higher Order Component  για τον drawer ώστε όταν κάποιος βάζει drawer να το βάλει στη θέσηση του content
+
+
+
+storybook-chrome-screenshot --puppeteer-launch-config '{"args": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"], "executablePath": "chrome.exe"}'
+

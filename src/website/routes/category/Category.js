@@ -1,13 +1,13 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import Articles from "components/main-content/components/articles";
-import { withProps } from "@core/utils/props";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import Articles from 'components/main-content/components/articles';
+import { withProps } from '@core/utils/props';
 import {
   articles,
   isFetching,
   fetchArticlesByCategory,
   articlesCriteria,
-} from "models/articles/props";
+} from 'models/articles/props';
 
 export const Category_ = ({
   match,

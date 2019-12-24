@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 const useProps = (propsMapers, ownProps) => {
   const state = useSelector(state => state);
@@ -14,7 +14,7 @@ const useProps = (propsMapers, ownProps) => {
       Object.assign(props, {
         [propName]: maper({ state, dispatch }, ownProps),
       }),
-    {},
+    {}
   );
 };
 

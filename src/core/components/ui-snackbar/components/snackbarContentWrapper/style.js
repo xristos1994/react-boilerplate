@@ -1,30 +1,30 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 export const styles = makeStyles(theme => {
   console.log(theme);
   return {
     success: {
-      backgroundColor: theme.palette.success.main
+      backgroundColor: theme.palette.success.main,
     },
     error: {
-      backgroundColor: theme.palette.error.main
+      backgroundColor: theme.palette.error.main,
     },
     info: {
-      backgroundColor: theme.palette.info.main
+      backgroundColor: theme.palette.info.main,
     },
     warning: {
-      backgroundColor: theme.palette.warning.main
+      backgroundColor: theme.palette.warning.main,
     },
     icon: {
-      fontSize: 20
+      fontSize: 20,
     },
     iconVariant: {
       opacity: 0.9,
-      marginRight: theme.spacing(1)
+      marginRight: theme.spacing(1),
     },
     message: {
-      display: "flex",
-      alignItems: "center"
-    }
+      display: 'flex',
+      alignItems: 'center',
+    },
   };
 });

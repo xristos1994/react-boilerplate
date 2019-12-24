@@ -1,5 +1,5 @@
-import { config } from "@core/configuration";
-import { coreAuth_updateAccount, coreAuth_updateInitialRoute } from "./actions";
+import { config } from '@core/configuration';
+import { coreAuth_updateAccount, coreAuth_updateInitialRoute } from './actions';
 
 const reducer = (
   state = { account: { isLogged: false || !config.hasLogin } },
@@ -9,7 +9,7 @@ const reducer = (
     case coreAuth_updateAccount.type: {
       return {
         ...state,
-        account: action.payload
+        account: action.payload,
       };
     }
     case coreAuth_updateInitialRoute.type: {
@@ -21,7 +21,7 @@ const reducer = (
 };
 
 const coreAuth_reducer = {
-  coreAuth: reducer
+  coreAuth: reducer,
 };
 
 export default coreAuth_reducer;

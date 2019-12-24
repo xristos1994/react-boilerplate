@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 export const styles = makeStyles(theme => ({
   list: {
@@ -7,7 +7,7 @@ export const styles = makeStyles(theme => ({
   fullList: {
     width: 'auto',
   },
-  drawer:{
-    top: '64px !important'
-  }
+  drawer: {
+    top: '64px !important',
+  },
 }));

@@ -1,5 +1,3 @@
-import UiModal from "./UiModal";
-import { uiModal } from "./uiModal.stories";
+import UiModal from './UiModal';
 
-export { uiModal };
 export default UiModal;

@@ -1,29 +1,29 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 
-import { config } from "@core/configuration";
-import { isLogged, coreAuth_logout } from "@core/models/authentication/props";
+import { config } from '@core/configuration';
+import { isLogged, coreAuth_logout } from '@core/models/authentication/props';
 import {
   coreUi_openDrawer,
   coreUi_closeDrawer,
-  drawerProps
-} from "@core/models/core-ui/props";
-import { withProps } from "@core/utils/props";
-import { styles } from "./style";
+  drawerProps,
+} from '@core/models/core-ui/props';
+import { withProps } from '@core/utils/props';
+import { styles } from './style';
 
 export const UiAppbar = ({
   isLogged,
   coreAuth_logout,
   coreUi_openDrawer,
   coreUi_closeDrawer,
-  drawerProps
+  drawerProps,
 }) => {
   const classes = styles();
 
@@ -73,13 +73,13 @@ export const UiAppbar = ({
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 open={open}
                 onClose={handleClose}
@@ -105,5 +105,5 @@ export default withProps({
   coreAuth_logout,
   coreUi_openDrawer,
   coreUi_closeDrawer,
-  drawerProps
+  drawerProps,
 })(UiAppbar);

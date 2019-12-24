@@ -1,3 +1,3 @@
-import CustomCheckbox from "./CustomCheckbox";
+import CustomCheckbox from './CustomCheckbox';
 
 export default CustomCheckbox;
