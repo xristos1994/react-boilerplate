@@ -1,15 +1,11 @@
 import React from 'react';
 
-import { MainContent } from 'components';
-import { UiModal, UiSnackbar, UiAppbar, UiDrawer } from '@core/components';
+import { MainContent, UiComponents } from 'components';
 
 const Website = () => {
   return (
     <>
-      <UiAppbar />
-      <UiDrawer />
-      <UiModal />
-      <UiSnackbar />
+      <UiComponents />
       <MainContent />
     </>
   );
