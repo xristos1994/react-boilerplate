@@ -15,9 +15,6 @@ export const Articles_ = ({
   fetchArticles,
   articlesCriteria,
 }) => {
-  if (!isFetching && articlesCriteria !== 'all') {
-    fetchArticles();
-  }
   return (
     <>
       <Helmet>

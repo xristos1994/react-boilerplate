@@ -16,12 +16,6 @@ export const Category_ = ({
   fetchArticlesByCategory,
   articlesCriteria,
 }) => {
-  if (
-    !isFetching &&
-    articlesCriteria !== `category_${match.params.categoryId}`
-  ) {
-    fetchArticlesByCategory(match.params.categoryId);
-  }
   return (
     <>
       <Helmet>

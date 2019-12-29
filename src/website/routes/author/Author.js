@@ -16,9 +16,6 @@ export const Author_ = ({
   fetchArticlesByAuthor,
   articlesCriteria,
 }) => {
-  if (!isFetching && articlesCriteria !== `author_${match.params.authorId}`) {
-    fetchArticlesByAuthor(match.params.authorId);
-  }
   return (
     <>
       <Helmet>

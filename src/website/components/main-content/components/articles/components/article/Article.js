@@ -3,10 +3,20 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { Link as MaterialLink } from '@material-ui/core';
 import { styles } from './style';
-import { push } from '@core/models/router/props';
 import { withProps } from '@core/utils/props';
 
-const Article = ({ article, push }) => {
+import {
+  navigateToArticle,
+  navigateToAuthor,
+  navigateToCategory,
+} from 'models/app/props';
+
+const Article = ({
+  article,
+  navigateToArticle,
+  navigateToAuthor,
+  navigateToCategory,
+}) => {
   const { id, title, category, shortText, author, comments, image } = article;
   const classes = styles();
   return (
@@ -14,7 +24,7 @@ const Article = ({ article, push }) => {
       <Paper
         className={classes.paper}
         onClick={() => {
-          push(`/article/${id}`);
+          navigateToArticle(`${id}`);
         }}
       >
         <Grid container direction="row">
@@ -32,7 +42,7 @@ const Article = ({ article, push }) => {
               component="button"
               onClick={e => {
                 e.stopPropagation();
-                push(`/category/${category.id}`);
+                navigateToCategory(`${category.id}`);
               }}
             >
               {category.name}
@@ -47,7 +57,7 @@ const Article = ({ article, push }) => {
               component="button"
               onClick={e => {
                 e.stopPropagation();
-                push(`/author/${author.id}`);
+                navigateToAuthor(`${author.id}`);
               }}
             >
               By {author.name}
@@ -61,7 +71,7 @@ const Article = ({ article, push }) => {
               component="button"
               onClick={e => {
                 e.stopPropagation();
-                push(`/article/${id}`);
+                navigateToArticle(`${id}`);
               }}
             >
               more . . .
@@ -73,4 +83,8 @@ const Article = ({ article, push }) => {
   );
 };
 
-export default withProps({ push })(Article);
+export default withProps({
+  navigateToArticle,
+  navigateToAuthor,
+  navigateToCategory,
+})(Article);

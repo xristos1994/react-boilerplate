@@ -18,6 +18,7 @@ import {
 import { withProps } from '@core/utils/props';
 import { coreUi_openModal, coreUi_openSnackbar } from '@core/models/core-ui';
 import { push } from '@core/models/router';
+import LoginForm from './../loginForm';
 
 export const TestComponent = ({
   test,
@@ -35,9 +36,11 @@ export const TestComponent = ({
   const [act1, setAct1] = useState(0);
   const [act2, setAct2] = useState(100);
   const { t } = useTranslation();
+  const [state, setState] = useState(55);
   //const { t, i18n } = useTranslation();
   return (
     <Grid container direction="row" justify="center" alignItems="center">
+      <div onClick={() => setState(state + 1)}>{state}</div>
       <Helmet>
         <title>Test</title>
         <link rel="icon" type="image/png" href={testIcon} sizes="16x16" />
@@ -92,6 +95,7 @@ export const TestComponent = ({
         &nbsp; &nbsp; &nbsp; | <Link to="/route3">Route 3</Link>
       </Grid>
       {t('Welcome to React')}
+      <LoginForm />
     </Grid>
   );
 };
