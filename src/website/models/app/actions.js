@@ -15,6 +15,8 @@ const navigateToCategory = Action('ROUTER', 'NAVIGATE_TO_CATEGORY');
 
 const navigateToTest = Action('ROUTER', 'NAVIGATE_TO_TEST');
 
+const changeHash = Action('ROUTER', 'CHANGE_HASH');
+
 export {
   start,
   navigateToLogin,
@@ -24,4 +26,5 @@ export {
   navigateToAuthor,
   navigateToCategory,
   navigateToTest,
+  changeHash,
 };

@@ -1,6 +1,6 @@
 import { combineEpics, ofType } from 'redux-observable';
 import { mergeMap } from 'rxjs/operators';
-import { replaceAction as replace } from '@core/models/router';
+import { pushAction as push } from '@core/models/router';
 //import { noAction } from "@core/models/general";
 import {
   coreUi_openLoaderAction,
@@ -34,28 +34,28 @@ import { mockedArticle } from './mockedArticle';
 const navigateToHomeEpic = (action$, state$) => {
   return action$.pipe(
     ofType(navigateToHome.type),
-    mergeMap(() => [replace('/home/')]),
+    mergeMap(() => [push('/home/')]),
   );
 };
 
 const navigateToTestEpic = (action$, state$) => {
   return action$.pipe(
     ofType(navigateToTest.type),
-    mergeMap(() => [replace('/route3/')]),
+    mergeMap(() => [push('/route3/')]),
   );
 };
 
 const navigateToLoginEpic = (action$, state$) => {
   return action$.pipe(
     ofType(navigateToLogin.type),
-    mergeMap(() => [replace('/login/')]),
+    mergeMap(() => [push('/login/')]),
   );
 };
 
 const navigateToArticlesEpic = (action$, state$) => {
   return action$.pipe(
     ofType(navigateToArticles.type),
-    mergeMap(() => [fetchArticles(), replace('/articles/')]),
+    mergeMap(() => [fetchArticles(), push('/articles/')]),
   );
 };
 
@@ -68,7 +68,7 @@ const navigateToAuthorEpic = (action$, state$) => {
       else authorId = payload.split('/')[2];
       return [
         fetchArticlesByAuthor(authorId),
-        replace('/author/' + authorId + '/'),
+        push('/author/' + authorId + '/'),
       ];
     }),
   );
@@ -83,7 +83,7 @@ const navigateToCategoryEpic = (action$, state$) => {
       else categoryId = payload.split('/')[2];
       return [
         fetchArticlesByCategory(categoryId),
-        replace('/category/' + categoryId + '/'),
+        push('/category/' + categoryId + '/'),
       ];
     }),
   );
@@ -96,7 +96,7 @@ const navigateToArticleEpic = (action$, state$) => {
       let articleId;
       if (payload.split('/').length === 1) articleId = payload;
       else articleId = payload.split('/')[2];
-      return [fetchArticle(articleId), replace('/article/' + articleId + '/')];
+      return [fetchArticle(articleId), push('/article/' + articleId + '/')];
     }),
   );
 };

@@ -1,5 +1,6 @@
 import { combineEpics, ofType } from 'redux-observable';
-import { map } from 'rxjs/operators';
+import store from '@core/store';
+import { map, tap } from 'rxjs/operators';
 import {
   start,
   navigateToLogin,
@@ -9,6 +10,7 @@ import {
   navigateToAuthor,
   navigateToCategory,
   navigateToTest,
+  changeHash,
 } from './actions';
 
 import { ROUTES } from 'website/utils';
@@ -16,6 +18,20 @@ import { ROUTES } from 'website/utils';
 const navigateOnInitializationEpic = (action$, state$) => {
   return action$.pipe(
     ofType(start.type),
+    tap(() => {
+      window.onhashchange = function() {
+        store.dispatch({
+          type: changeHash.type,
+        });
+      };
+    }),
+    map(() => changeHash()),
+  );
+};
+
+const navigateOnHashChangeEpic = (action$, state$) => {
+  return action$.pipe(
+    ofType(changeHash.type),
     map(() => {
       let location = window.location.hash;
       location =
@@ -52,4 +68,7 @@ const navigateOnInitializationEpic = (action$, state$) => {
   );
 };
 
-export const appEpic = combineEpics(navigateOnInitializationEpic);
+export const appEpic = combineEpics(
+  navigateOnInitializationEpic,
+  navigateOnHashChangeEpic,
+);
