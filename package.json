@@ -1,5 +1,5 @@
 {
-  "name": "React-Boilerplate",
+  "name": "react_boilerplate",
   "version": "0.1.0",
   "homepage": "http://xristos1994.github.io/my-auth/",
   "private": true,
@@ -49,6 +49,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-app-polyfill": "^1.0.2",
     "react-custom-scrollbars": "^4.2.1",
@@ -95,8 +96,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "plugin:flowtype/recommended",
-      "prettier/flowtype"
+      "plugin:flowtype/recommended"
     ],
     "plugins": [
       "flowtype"
@@ -184,10 +184,11 @@
   "babel": {
     "presets": [
       "react-app",
-      "flow"
+      "@babel/preset-flow"
     ],
     "plugins": [
-      "@babel/plugin-proposal-optional-chaining"
+      "@babel/plugin-proposal-optional-chaining",
+      "flow-react-proptypes"
     ]
   },
   "devDependencies": {
@@ -195,6 +196,7 @@
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "babel-cli": "^6.26.0",
+    "babel-plugin-flow-react-proptypes": "^25.1.0",
     "babel-preset-flow": "^6.23.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",

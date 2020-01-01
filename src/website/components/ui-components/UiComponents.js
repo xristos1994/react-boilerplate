@@ -11,7 +11,6 @@ import { withProps } from '@core/utils/props';
 type Props = {
   navigateToArticles: Function,
   navigateToTest: Function,
-  a: Number,
 };
 
 const UiComponents = ({ navigateToArticles, navigateToTest }: Props) => {
