@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 
 import { UiModal, UiSnackbar, UiAppbar, UiDrawer } from '@core/components';
@@ -7,7 +8,13 @@ import MailIcon from '@material-ui/icons/Mail';
 import { navigateToArticles, navigateToTest } from 'models/app/props';
 import { withProps } from '@core/utils/props';
 
-const UiComponents = ({ navigateToArticles, navigateToTest }) => {
+type Props = {
+  navigateToArticles: Function,
+  navigateToTest: Function,
+  a: Number,
+};
+
+const UiComponents = ({ navigateToArticles, navigateToTest }: Props) => {
   const options = [
     {
       label: 'Articles',

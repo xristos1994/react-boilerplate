@@ -88,10 +88,19 @@
     "format": "prettier --write \"src/**/*.js\"",
     "storybook": "start-storybook -p 4001 -s public",
     "screenshot": "npm run test ^.withscr.test/*.js",
-    "noscreenshot": "npm run test    ^.noscr.test/*.js"
+    "noscreenshot": "npm run test    ^.noscr.test/*.js",
+    "flow": "flow",
+    "pretest": "npm run flow && npm run lint"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:flowtype/recommended",
+      "prettier/flowtype"
+    ],
+    "plugins": [
+      "flowtype"
+    ]
   },
   "browserslist": {
     "production": [
@@ -143,7 +152,14 @@
       "@core/operators(.*)$": "<rootDir>/src/core/operators$1",
       "@core/actions-engine(.*)$": "<rootDir>/src/core/actions-engine$1",
       "@core/configuration(.*)$": "<rootDir>/src/core/configuration$1",
-      "@core/testing(.*)$": "<rootDir>/src/core/testing$1"
+      "@core/testing(.*)$": "<rootDir>/src/core/testing$1",
+      "website(.*)$": "<rootDir>/src/website/$1",
+      "components(.*)$": "<rootDir>/src/website/components/$1",
+      "utils(.*)$": "<rootDir>/src/website/utils/$1",
+      "models(.*)$": "<rootDir>/src/website/models/$1",
+      "services(.*)$": "<rootDir>/src/website/services/$1",
+      "routes(.*)$": "<rootDir>/src/website/routes/$1",
+      "theme(.*)$": "<rootDir>/src/theme/$1"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -167,7 +183,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "flow"
     ],
     "plugins": [
       "@babel/plugin-proposal-optional-chaining"
@@ -177,9 +194,12 @@
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
+    "flow-bin": "^0.114.0",
     "gh-pages": "^2.1.1",
     "jest": "^24.8.0",
     "jest-image-snapshot": "^2.11.1",

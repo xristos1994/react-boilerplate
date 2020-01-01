@@ -1,0 +1,27 @@
+[ignore]
+.*/node_modules/*.*/build/*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.name_mapper='^@core/store' ->'<PROJECT_ROOT>/src/core/store'
+module.name_mapper='^@core/components' ->'<PROJECT_ROOT>/src/core/components'
+module.name_mapper='^@core/utils' ->'<PROJECT_ROOT>/src/core/utils'
+module.name_mapper='^@core/models' ->'<PROJECT_ROOT>/src/core/models'
+module.name_mapper='^@core/operators' ->'<PROJECT_ROOT>/src/core/operators'
+module.name_mapper='^@core/actions-engine' ->'<PROJECT_ROOT>/src/core/actions-engine'
+module.name_mapper='^@core/configuration' ->'<PROJECT_ROOT>/src/core/configuration'
+module.name_mapper='^@core/testing' ->'<PROJECT_ROOT>/src/core/testing'
+module.name_mapper='^website' ->'<PROJECT_ROOT>/src/website'
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/website/components'
+module.name_mapper='^utils' ->'<PROJECT_ROOT>/src/website/utils'
+module.name_mapper='^models' ->'<PROJECT_ROOT>/src/website/models'
+module.name_mapper='^services' ->'<PROJECT_ROOT>/src/website/services'
+module.name_mapper='^routes' ->'<PROJECT_ROOT>/src/website/routes'
+module.name_mapper='^theme' ->'<PROJECT_ROOT>/src/theme'
+
+[strict]

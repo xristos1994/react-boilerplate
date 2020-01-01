@@ -30,6 +30,13 @@ const config = {
     '@core/operators(.*)$': '<rootDir>/src/core/operators$1',
     '@core/actions-engine(.*)$': '<rootDir>/src/core/actions-engine$1',
     '@core/configuration(.*)$': '<rootDir>/src/core/configuration$1',
+    'website(.*)$': '<rootDir>/src/website/$1',
+    'components(.*)$': '<rootDir>/src/website/components/$1',
+    'utils(.*)$': '<rootDir>/src/website/utils/$1',
+    'models(.*)$': '<rootDir>/src/website/models/$1',
+    'services(.*)$': '<rootDir>/src/website/services/$1',
+    'routes(.*)$': '<rootDir>/src/website/routes/$1',
+    'theme(.*)$': '<rootDir>/src/theme/$1',
   },
   moduleFileExtensions: [
     'web.js',
