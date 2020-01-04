@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -18,13 +19,23 @@ import {
 import { withProps } from '@core/utils/props';
 import { styles } from './style';
 
+type Props = {
+  drawerProps: {
+    show: boolean,
+  },
+  isLogged: boolean,
+  coreAuth_logout?: Function,
+  coreUi_openDrawer: Function,
+  coreUi_closeDrawer: Function,
+};
+
 export const UiAppbar = ({
   isLogged,
   coreAuth_logout,
   coreUi_openDrawer,
   coreUi_closeDrawer,
   drawerProps,
-}) => {
+}: Props) => {
   const classes = styles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,8 +11,19 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { withProps } from '@core/utils/props';
 import { coreUi_closeModal, modalProps } from '@core/models/core-ui/';
 
-export const UiModal = ({ modalProps, coreUi_closeModal }) => {
-  const { title = '', message = '', show = false } = modalProps;
+type Props = {
+  modalProps: {
+    title?: string,
+    message?: string,
+    show: boolean,
+  },
+  coreUi_closeModal: Function,
+};
+
+export const UiModal = ({
+  modalProps: { title = '', message = '', show = false },
+  coreUi_closeModal,
+}: Props) => {
   return (
     <div>
       <Dialog

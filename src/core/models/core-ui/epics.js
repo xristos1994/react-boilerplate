@@ -28,15 +28,15 @@ export const coreUi_openModalEpic = (action$, state$) => {
       coreUi_updateModalState({
         ...createModalState(payload),
         show: true,
-      })
-    )
+      }),
+    ),
   );
 };
 
 const coreUi_closeModalEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeModalAction.type),
-    map(() => coreUi_updateModalState({}))
+    map(() => coreUi_updateModalState({ show: false })),
   );
 };
 // ~Modal
@@ -54,7 +54,7 @@ const coreUi_openSnackbarEpic = (action$, state$) => {
         ...createSnackbarState(payload),
         duration: payload.duration ? payload.duration : 2000,
       }),
-    ])
+    ]),
   );
 };
 
@@ -62,8 +62,8 @@ const coreUi_closeSnackbarEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeSnackbarAction.type),
     map(({ payload }) => {
-      return coreUi_updateSnackbarState(payload);
-    })
+      return coreUi_updateSnackbarState({ ...payload, show: false });
+    }),
   );
 };
 
@@ -71,7 +71,7 @@ const coreUi_closeSnackbarAfterMsEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeSnackbarAfterMs.type),
     delayWhen(({ payload }) => interval(payload.duration)),
-    map(({ payload }) => coreUi_closeSnackbarAction(payload))
+    map(({ payload }) => coreUi_closeSnackbarAction(payload)),
   );
 };
 // ~Snackbar
@@ -80,14 +80,14 @@ const coreUi_closeSnackbarAfterMsEpic = (action$, state$) => {
 const coreUi_openDrawerEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_openDrawerAction.type),
-    map(() => coreUi_updateDrawerState({ show: true }))
+    map(() => coreUi_updateDrawerState({ show: true })),
   );
 };
 
 const coreUi_closeDrawerEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeDrawerAction.type),
-    map(() => coreUi_updateDrawerState({ show: false }))
+    map(() => coreUi_updateDrawerState({ show: false })),
   );
 };
 // ~Drawer
@@ -96,14 +96,14 @@ const coreUi_closeDrawerEpic = (action$, state$) => {
 const coreUi_openLoaderEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_openLoaderAction.type),
-    map(() => coreUi_updateLoaderState({ show: true }))
+    map(() => coreUi_updateLoaderState({ show: true })),
   );
 };
 
 const coreUi_closeLoaderEpic = (action$, state$) => {
   return action$.pipe(
     ofType(coreUi_closeLoaderAction.type),
-    map(() => coreUi_updateLoaderState({ show: false }))
+    map(() => coreUi_updateLoaderState({ show: false })),
   );
 };
 // ~Drawer
@@ -117,6 +117,6 @@ export const coreUi_epic = combineEpics(
   coreUi_openDrawerEpic,
   coreUi_closeDrawerEpic,
   coreUi_openLoaderEpic,
-  coreUi_closeLoaderEpic
+  coreUi_closeLoaderEpic,
 );
 export default coreUi_epic;

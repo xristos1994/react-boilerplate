@@ -13,7 +13,7 @@ type Props = {
   navigateToTest: Function,
 };
 
-const UiComponents = ({ navigateToArticles, navigateToTest }: Props) => {
+const UiComponents = ({ navigateToArticles, navigateToTest, a }: Props) => {
   const options = [
     {
       label: 'Articles',

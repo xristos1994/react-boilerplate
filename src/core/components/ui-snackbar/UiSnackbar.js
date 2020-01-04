@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import { SnackbarContentWrapper } from './components';
@@ -7,8 +8,20 @@ import { coreUi_closeSnackbar, snackbarProps } from '@core/models/core-ui';
 
 import { positions } from './utils';
 
-export const UiSnackbar = ({ snackbarProps, coreUi_closeSnackbar }) => {
-  const { message, type, position, show } = snackbarProps;
+type Props = {
+  snackbarProps: {
+    message?: string,
+    type?: 'success' | 'warning' | 'error' | 'info',
+    position?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight',
+    show: boolean,
+  },
+  coreUi_closeSnackbar: Function,
+};
+
+export const UiSnackbar = ({
+  snackbarProps: { message, type, position, show },
+  coreUi_closeSnackbar,
+}: Props) => {
   return (
     <div>
       <Snackbar
@@ -29,4 +42,5 @@ export const UiSnackbar = ({ snackbarProps, coreUi_closeSnackbar }) => {
     </div>
   );
 };
+
 export default withProps({ coreUi_closeSnackbar, snackbarProps })(UiSnackbar);

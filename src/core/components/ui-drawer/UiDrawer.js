@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -13,13 +14,21 @@ import { styles } from './style';
 import { isLogged } from '@core/models/authentication/props';
 import { coreUi_closeDrawer, drawerProps } from '@core/models/core-ui/props';
 
+type Props = {
+  drawerProps: {
+    show: boolean,
+  },
+  isLogged: boolean,
+  options: [],
+  coreUi_closeDrawer: Function,
+};
+
 export const UiDrawer = ({
   isLogged,
   coreUi_closeDrawer,
-  drawerProps,
+  drawerProps: { show },
   options,
-}) => {
-  const { show } = drawerProps;
+}: Props) => {
   const classes = styles();
 
   function debounce(fn, ms) {

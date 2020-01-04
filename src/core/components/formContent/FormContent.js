@@ -1,8 +1,14 @@
+// @flow
 import React from 'react';
 import { Field } from 'react-final-form';
 import Grid from '@material-ui/core/Grid';
 
-const FormContent = ({ errors, content }) => {
+type Props = {
+  errors: Object,
+  content: Object,
+};
+
+const FormContent = ({ errors, content }: Props) => {
   return (
     <>
       <h1>{content.title}</h1>
