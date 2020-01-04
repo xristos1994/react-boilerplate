@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+//import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 import { testIcon } from 'theme/icons';
 import './testComponent.css';
 import {
@@ -20,8 +21,10 @@ import { withProps } from '@core/utils/props';
 import { coreUi_openModal, coreUi_openSnackbar } from '@core/models/core-ui';
 import { push } from '@core/models/router';
 import LoginForm from './../loginForm';
+import i18n from './../../../../../i18n/i18n';
 
 type Props = {
+  t: Function,
   test: number,
   doTest: Function,
   coreUi_openModal: Function,
@@ -36,6 +39,7 @@ type Props = {
 };
 
 export const TestComponent = ({
+  t,
   test,
   doTest,
   coreUi_openModal,
@@ -50,9 +54,7 @@ export const TestComponent = ({
 }: Props) => {
   const [act1, setAct1] = useState(0);
   const [act2, setAct2] = useState(100);
-  const { t } = useTranslation();
   const [state, setState] = useState(55);
-  //const { t, i18n } = useTranslation();
   return (
     <Grid container direction="row" justify="center" alignItems="center">
       <div onClick={() => setState(state + 1)}>{state}</div>
@@ -109,22 +111,25 @@ export const TestComponent = ({
       <Grid item>
         &nbsp; &nbsp; &nbsp; | <Link to="/route3">Route 3</Link>
       </Grid>
-      {t('Welcome to React')}
+      <span onClick={() => i18n.changeLanguage('en')}>ENGLISH</span>
+      {t('test')}
       <LoginForm />
     </Grid>
   );
 };
 
-export default withProps({
-  test,
-  doTest,
-  coreUi_openModal,
-  coreUi_openSnackbar,
-  requestTest,
-  zip_1,
-  zip_2,
-  push,
-  action1,
-  action2,
-  abort_zip,
-})(TestComponent);
+export default withTranslation()(
+  withProps({
+    test,
+    doTest,
+    coreUi_openModal,
+    coreUi_openSnackbar,
+    requestTest,
+    zip_1,
+    zip_2,
+    push,
+    action1,
+    action2,
+    abort_zip,
+  })(TestComponent),
+);
