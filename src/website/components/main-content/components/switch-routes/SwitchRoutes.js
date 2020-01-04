@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -14,7 +15,11 @@ import {
   category,
 } from 'routes';
 
-const SwitchRoutes = ({ isLogged }) => {
+type Props = {
+  isLogged: boolean,
+};
+
+const SwitchRoutes = ({ isLogged }: Props) => {
   return (
     <>
       <>

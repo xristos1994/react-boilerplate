@@ -1,21 +1,13 @@
+// @flow
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Articles from 'components/main-content/components/articles';
-import { withProps } from '@core/utils/props';
-import {
-  articles,
-  isFetching,
-  fetchArticlesByAuthor,
-  articlesCriteria,
-} from 'models/articles/props';
 
-export const Author_ = ({
-  match,
-  articles,
-  isFetching,
-  fetchArticlesByAuthor,
-  articlesCriteria,
-}) => {
+type Props = {
+  match: object,
+};
+
+export const Author_ = ({ match }: Props) => {
   return (
     <>
       <Helmet>
@@ -27,9 +19,4 @@ export const Author_ = ({
   );
 };
 
-export default withProps({
-  articles,
-  isFetching,
-  fetchArticlesByAuthor,
-  articlesCriteria,
-})(Author_);
+export default Author_;

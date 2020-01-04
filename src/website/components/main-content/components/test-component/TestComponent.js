@@ -1,3 +1,4 @@
+// @flow
 import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { Helmet } from 'react-helmet-async';
@@ -20,6 +21,20 @@ import { coreUi_openModal, coreUi_openSnackbar } from '@core/models/core-ui';
 import { push } from '@core/models/router';
 import LoginForm from './../loginForm';
 
+type Props = {
+  test: number,
+  doTest: Function,
+  coreUi_openModal: Function,
+  coreUi_openSnackbar: Function,
+  requestTest: Function,
+  zip_1: Function,
+  zip_2: Function,
+  push: Function,
+  action1: Function,
+  action2: Function,
+  abort_zip: Function,
+};
+
 export const TestComponent = ({
   test,
   doTest,
@@ -32,7 +47,7 @@ export const TestComponent = ({
   action1,
   action2,
   abort_zip,
-}) => {
+}: Props) => {
   const [act1, setAct1] = useState(0);
   const [act2, setAct2] = useState(100);
   const { t } = useTranslation();

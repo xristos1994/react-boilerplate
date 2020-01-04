@@ -1,20 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Articles from 'components/main-content/components/articles';
-import { withProps } from '@core/utils/props';
-import {
-  articles,
-  isFetching,
-  fetchArticles,
-  articlesCriteria,
-} from 'models/articles/props';
 
-export const Articles_ = ({
-  articles,
-  isFetching,
-  fetchArticles,
-  articlesCriteria,
-}) => {
+export const Articles_ = () => {
   return (
     <>
       <Helmet>
@@ -25,10 +13,4 @@ export const Articles_ = ({
   );
 };
 
-//export default Articles_;
-export default withProps({
-  articles,
-  isFetching,
-  fetchArticles,
-  articlesCriteria,
-})(Articles_);
+export default Articles_;

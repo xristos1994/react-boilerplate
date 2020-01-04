@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Form } from 'react-final-form';
 import Button from '@material-ui/core/Button';
@@ -20,7 +21,11 @@ const calculator = createDecorator();
 //   },
 // }
 
-const LoginForm = ({ coreAuth_login }) => {
+type Props = {
+  coreAuth_login: Function,
+};
+
+const LoginForm = ({ coreAuth_login }: Props) => {
   const onSubmit = values => coreAuth_login({ body: { ...values } });
 
   return (

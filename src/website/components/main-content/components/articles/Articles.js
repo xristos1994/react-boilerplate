@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Article from './components/article';
@@ -6,7 +7,12 @@ import { articles, isFetching } from 'models/articles/props';
 
 import { styles } from './style';
 
-export const Articles = ({ articles, isFetching }) => {
+type Props = {
+  articles?: [],
+  isFetching: boolean,
+};
+
+export const Articles = ({ articles, isFetching }: Props) => {
   const classes = styles();
   return (
     <div className={classes.root}>

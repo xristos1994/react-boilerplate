@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
@@ -8,7 +9,13 @@ import { SwitchRoutes } from './components';
 import { Scrollbars } from 'react-custom-scrollbars';
 import styles from './style';
 
-export const MainContent = ({ drawerProps }) => {
+type Props = {
+  drawerProps: {
+    show: boolean,
+  },
+};
+
+export const MainContent = ({ drawerProps }: Props) => {
   const classes = styles(drawerProps.show)();
   return (
     <Scrollbars style={{ height: 'calc(100vh - 64px)' }}>

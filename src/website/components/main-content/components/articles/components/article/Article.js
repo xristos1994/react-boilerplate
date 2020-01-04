@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -11,13 +12,27 @@ import {
   navigateToCategory,
 } from 'models/app/props';
 
+type Props = {
+  navigateToArticle: Function,
+  navigateToAuthor: Function,
+  navigateToCategory: Function,
+  article: {
+    id: number,
+    title: string,
+    category: object,
+    shortText: string,
+    author: object,
+    comments: number,
+    image: object,
+  },
+};
+
 const Article = ({
-  article,
+  article: { id, title, category, shortText, author, comments, image },
   navigateToArticle,
   navigateToAuthor,
   navigateToCategory,
-}) => {
-  const { id, title, category, shortText, author, comments, image } = article;
+}: Props) => {
   const classes = styles();
   return (
     <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
