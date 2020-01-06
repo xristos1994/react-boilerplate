@@ -19,6 +19,7 @@ import {
 } from 'models/test-model/props';
 import { withProps } from '@core/utils/props';
 import { coreUi_openModal, coreUi_openSnackbar } from '@core/models/core-ui';
+import { navigateToTest } from 'models/app/props';
 import { push } from '@core/models/router';
 import LoginForm from './../loginForm';
 import i18n from './../../../../../i18n/i18n';
@@ -36,6 +37,7 @@ type Props = {
   action1: Function,
   action2: Function,
   abort_zip: Function,
+  navigateToTest: Function,
 };
 
 export const TestComponent = ({
@@ -51,6 +53,7 @@ export const TestComponent = ({
   action1,
   action2,
   abort_zip,
+  navigateToTest,
 }: Props) => {
   const [act1, setAct1] = useState(0);
   const [act2, setAct2] = useState(100);
@@ -109,7 +112,16 @@ export const TestComponent = ({
         &nbsp; &nbsp; &nbsp; | <Link to="/route2">Route 2</Link>
       </Grid>
       <Grid item>
-        &nbsp; &nbsp; &nbsp; | <Link to="/route3">Route 3</Link>
+        &nbsp; &nbsp; &nbsp; |{' '}
+        <Link
+          to="/route3"
+          onClick={e => {
+            e.preventDefault();
+            navigateToTest();
+          }}
+        >
+          Route 3
+        </Link>
       </Grid>
       <span onClick={() => i18n.changeLanguage('en')}>ENGLISH</span>
       {t('test')}
@@ -131,5 +143,6 @@ export default withTranslation()(
     action1,
     action2,
     abort_zip,
+    navigateToTest,
   })(TestComponent),
 );

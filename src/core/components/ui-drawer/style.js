@@ -10,4 +10,5 @@ export const styles = makeStyles(theme => ({
   drawer: {
     top: '64px !important',
   },
+  link: { textDecoration: 'none' },
 }));
