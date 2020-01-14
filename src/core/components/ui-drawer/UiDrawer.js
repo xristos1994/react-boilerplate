@@ -7,7 +7,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { Link } from 'react-router-dom';
 
 import { calcDrawerWidth } from './utils';
 import { withProps } from '@core/utils/props';
@@ -90,22 +89,11 @@ export const UiDrawer = ({
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {options.map(({ label, action, icon, route }, index) => (
-          <Link
-            className={classes.link}
-            key={label}
-            underline="none"
-            to={route}
-            onClick={e => {
-              e.preventDefault();
-              action();
-            }}
-          >
-            <ListItem button>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={label} />
-            </ListItem>
-          </Link>
+        {options.map(({ label, action, icon }, index) => (
+          <ListItem button key={label} onClick={() => action(label)}>
+            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemText primary={label} />
+          </ListItem>
         ))}
       </List>
       <Divider />
