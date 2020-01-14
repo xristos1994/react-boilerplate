@@ -1,7 +1,7 @@
 {
   "name": "react_boilerplate",
   "version": "0.1.0",
-  "homepage": "http://xristos1994.github.io/my-auth/",
+  "homepage": "http://xristos1994.github.io/react-boilerplate/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.5.1",
