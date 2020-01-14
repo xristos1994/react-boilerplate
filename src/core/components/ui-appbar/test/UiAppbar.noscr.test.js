@@ -7,6 +7,8 @@ describe('Appbar Test', () => {
     const props = {
       isLogged: true,
       drawerProps: { show: true },
+      coreUi_openDrawer: () => console.log('Open Drawer'),
+      coreUi_closeDrawer: () => console.log('Close Drawer'),
     };
 
     const component = shallow(<UiAppbar {...props} />);
@@ -16,6 +18,8 @@ describe('Appbar Test', () => {
     const props = {
       isLogged: false,
       drawerProps: { show: true },
+      coreUi_openDrawer: () => console.log('Open Drawer'),
+      coreUi_closeDrawer: () => console.log('Close Drawer'),
     };
 
     const component = shallow(<UiAppbar {...props} />);
