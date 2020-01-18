@@ -88,6 +88,7 @@
     "deploy": "gh-pages -d build",
     "format": "prettier --write \"src/**/*.js\"",
     "storybook": "start-storybook -p 4001 -s public",
+    "build-storybook": "build-storybook -c .storybook -o storybook-build",
     "screenshot": "npm run test ^.withscr.test/*.js",
     "noscreenshot": "npm run test    ^.noscr.test/*.js",
     "flow": "flow"
